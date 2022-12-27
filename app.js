@@ -6,5 +6,8 @@ const port = 5000;
 app.get("/",(req,res)=>{
     res.send("i am from real-estate project!")
 })
+app.get("/home",(req,res)=>{
+    res.send("i am from real-estate project home!")
+})
 
 app.listen(port,()=>{console.log(`server is up at port number ${port}`)})
