@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId; 
 
 const userSchema = new Schema({
-   id:ObjectId,
+   
+    id:{type:String},
     userId : {type:String, required:true},
     password:{type:String, required:true},
     confirm_password:{type:String, required:true}

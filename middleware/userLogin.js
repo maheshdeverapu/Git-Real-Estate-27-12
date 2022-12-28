@@ -20,13 +20,14 @@ jwt.verify(token,SECRET_KEY,async(error,payload)=>{
             message: error.message
         })
     }
-    console.log(error,payload)
+    // console.log(error,payload)
 
     const {_id} = payload;
     
     const user = await User.findById(_id);
     // console.log(user)
     // console.log(_id)
+    // user.id = user._id
     req.user = user;
     next();
 })
