@@ -27,9 +27,12 @@ jwt.verify(token,SECRET_KEY,async(error,payload)=>{
     const user = await User.findById(_id);
     // console.log(user)
     // console.log(_id)
+    req.token = token;
     req.user = user;
     next();
 })
 }
 
 module.exports = userLogin;
+
+

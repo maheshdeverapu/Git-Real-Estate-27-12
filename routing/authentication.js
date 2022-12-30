@@ -16,6 +16,7 @@ router.post("/signup", async(req,res)=>{
     try{
         console.log(req.body)
     const {userId,password,confirm_password} = req.body;
+    console.log(userId,password,confirm_password)
     if(!userId || !password || !confirm_password){
         return res.status(422).json({
             status:"Failed",
@@ -23,14 +24,14 @@ router.post("/signup", async(req,res)=>{
         })
     }
     if(password !== confirm_password){
-        return res.status(422).json({
+        return res.status(421).json({
             status:"Failed",
             message:"password && confirm password must be same"
         })
     }
     let user = await User.findOne({userId:userId});
     if(user){
-        return res.status(422).json({
+        return res.status(420).json({
             status:"Failed",
             message:"userId already exists"
         })
@@ -83,8 +84,9 @@ router.post("/signin", async(req,res)=>{
         console.log(err,result)
         if(result === true){
             const token = jwt.sign({_id:user._id},SECRET_KEY);
+            const {userId} = user;
             res.json({
-                token
+                token,userId
             })
         }
         else{
