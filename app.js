@@ -13,7 +13,7 @@ mongoose.set('strictQuery', false);
 if(process.env.NODE_ENV !== "production"){
     require("dotenv").config({path:"config.env"})
 }
-const port = 5000;
+const port = process.env.port || 5000;
 // const temp = require("./keys");
 
 mongoose.set('strictQuery', false)
@@ -64,13 +64,7 @@ connectDatabase();
 app.use(express.json());
 app.use(require("./routing/authentication"));
 app.use(require("./routing/post"));
-// app.get("/",(req,res)=>{
-//     res.send("i am from real-estate project!")
-// })
-// app.post("/posting",(req,res)=>{
-//     console.log(req.body)
-//     res.end()
-// })
+
 
 if (process.env.NODE_ENV === 'production') {
     //*Set static folder up in production

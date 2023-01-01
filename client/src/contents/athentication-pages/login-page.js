@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import {useState} from "react";
 import React from "react";
+import M from "materialize-css"
 const Signin = ()=>{
     // const [userDetails,setUserDetails] = useState({userId:"",password:""})
     const [userId,setUserId] = useState("")
@@ -9,11 +10,14 @@ const Signin = ()=>{
     const loginHandling =()=>{
         // console.log(userDetails)
         // const {userId,password}= userDetails;
+        if(!userId || !password){
+            M.toast({html: 'please enter all fields'})
+            return 
+        }
         fetch("/signin",{
             method:"post",
             headers:{
-                "Content-Type":"application/json"
-                
+                "Content-Type":"application/json"                
             },
             body:JSON.stringify({
                 userId,
@@ -22,13 +26,15 @@ const Signin = ()=>{
         }).then(res=>res.json()).then((data)=>{
             console.log(data);
             // debugger
+            if(data !== undefined){
             localStorage.setItem("token",data.token)
             localStorage.setItem("userId",data.userId)
             console.log(localStorage.getItem("token","i am from .then in login page"))
-        }).catch((err)=>{
-            console.log(err)
-        }).finally()
-        navigate("/posts")
+        }
+    }).catch((err)=>{
+        console.log(err)
+    }).finally()
+    navigate("/getId")
     }
     return(
         <>

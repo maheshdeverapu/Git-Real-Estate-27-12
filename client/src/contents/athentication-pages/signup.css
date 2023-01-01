@@ -1,0 +1,9 @@
+.signup-page{
+    width: 600px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: auto;
+}
+.signup-header{
+    text-align: center;
+}

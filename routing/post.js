@@ -75,19 +75,7 @@ catch(err){
 }
 })
 
-// router.get("/posts",async(req,res)=>{
-//     const posts = await Post.find(req.posts);
-//     if(!posts){
-//         return res.status(400).json({
-//             status : "Failed",
-//             message : "empty - no posts"
-//         })
-//     }
-//     res.json({
-//         posts
-//     })
-// })
-router.get("/posts",async(req,res)=>{
+router.get("/posts",userLogin,async(req,res)=>{
     const posts = await Post.find(req.posts);
     if(!posts){
         return res.status(400).json({
