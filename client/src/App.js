@@ -11,26 +11,37 @@ import LocationInfo from './contents/screens/location-info';
 import {Link } from "react";
 import GetAll from './contents/screens/getAll';
 import Search from './contents/others/search';
+import NotificationProvider from './contents/context/notificationPovider';
+
 
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+     
+          <NotificationProvider>
+        <BrowserRouter>
         <Routes>
           <Route path='/signup' element={ <Signup/>}/>
           <Route path='/signin' element={<Signin/>}/>
+
+
           <Route path='/basicInfo' element={<BasicInfo/>}/>
           <Route path='/generalInfo' element={<GeneralInfo/>}/>
           <Route path='/propertyDetails' element={<PropertyDetails/>}/>
           <Route path='/locationInfo' element={<LocationInfo/>}/>
-          <Route path='/' element={<AddProperty/>}/>
-          <Route path='/posts' element={<GetAll/>}/>
+          <Route path='/info' element={<AddProperty/>}/>
+          <Route path='/home' element={<GetAll/>}/>
           <Route path='/getId' element={<Search/>}/>
+
+          {/* <Route path='/parent' element={<NotificationProvider/>}/> */}
 
 
         </Routes>
       </BrowserRouter>
+          </NotificationProvider>
+    
+      
       
       
     </div>
