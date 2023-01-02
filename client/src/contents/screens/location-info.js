@@ -12,6 +12,7 @@ const LocationInfo = ()=>{
                 <div>
                     <label htmlFor="city">City</label>
                     <select id="city" name="city">
+                         <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -19,6 +20,7 @@ const LocationInfo = ()=>{
                 <div>
                     <label htmlFor="area">Area</label>
                     <select id="area" name="area">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -26,6 +28,7 @@ const LocationInfo = ()=>{
                 <div>
                     <label htmlFor="pincode">Pincode</label>
                     <select id="pincode" name="pincode">
+                        <option>select</option> 
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -33,6 +36,7 @@ const LocationInfo = ()=>{
                 <div>
                     <label htmlFor="address">Address</label>
                     <select id="address" name="address">
+                        <option>select</option> 
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -40,6 +44,7 @@ const LocationInfo = ()=>{
                 <div>
                     <label htmlFor="landmark">Landmark</label>
                     <select id="landmark" name="landmark">
+                        <option>select</option> 
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>

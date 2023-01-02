@@ -14,7 +14,7 @@
 }  */
 
 
-.signup-page{
+.login-page{
     position: absolute;
     left: 0%;
     right: 0%;
@@ -22,7 +22,7 @@
     bottom: 0%;
     background-color:rgb(225,249,244);
 }
-.signup-content{
+.login-content{
 
     position: absolute;
 left: 30%;
@@ -46,7 +46,7 @@ border-radius: 10px;
     border:1px solid red
 } */
 
-.signup-logo{
+.login-logo{
     position: absolute;
    
 width: 150px;
@@ -69,11 +69,11 @@ letter-spacing: 0.25px;
 color: #4C57B6;
 
 }
-.signup-details{
+.login-details{
     position: absolute;
     width: 328px;
     height: 22px;
-    left: 41%;
+    left: 28%;
     top: 23%;
 
 font-family: 'Open Sans';
@@ -92,34 +92,14 @@ color: #000000;
 
 opacity: 0.6;
 }
-.signup-mail{
-    box-sizing: border-box !important;
-
-position: absolute !important;
-height: 54px !important;
-left: 10% !important;
-width: 460px !important;
-/* right: 10% !important; */
-top: 40% !important;
-border: 1px solid !important;
-
-/* Colors/Neutral/White */
-
-background: #FFFFFF;
-border: 1px solid #c1c1c1 !important;
-border-radius: 5px !important;
-}
-
-.signup-password{
-box-sizing: border-box;
+.login-mail{
+    box-sizing: border-box;
 
 position: absolute;
-height: 56px;
+height: 54px;
 left: 10%;
-width: 460px !important;
-top: 54%;
-border: 1px solid #c1c1c1 !important;
-border-radius: 5px !important;
+right: 10%;
+top: 40%;
 
 /* Colors/Neutral/White */
 
@@ -127,40 +107,38 @@ background: #FFFFFF;
 border: 1px solid #E2E2E2;
 border-radius: 5px;
 }
-.signup-confirm-password{
+
+.login-password{
 box-sizing: border-box;
 
 position: absolute;
+height: 54px;
 left: 10%;
 width: 460px !important;
-top: 68%;
-height: 56px;
-
-/* bottom: 23%; */
+top: 55%;
 border: 1px solid #c1c1c1 !important;
 border-radius: 5px !important;
-
 /* Colors/Neutral/White */
 
 background: #FFFFFF;
+border: 1px solid #E2E2E2;
 border-radius: 5px;
 }
 
 
-.signup-submit{
+.login-signup{
     
 position: absolute;
-left: 10%;
-right: 10%;
-top: 82%;
-bottom: 10%;
+left: 34.38%;
+right: 34.38%;
+top: 85%;
+bottom: 29.49%;
 text-align: center;
 text-decoration: none;
-background: #4C57B6;
-border-radius: 5px;
+
 
 }
-/* .login-submit{
+.login-submit{
     
 position: absolute;
 left: 10%;
@@ -173,7 +151,7 @@ bottom: 17%;
 
 background: #4C57B6;
 border-radius: 5px;
-} */
+}
 
 
 
