@@ -1,10 +1,15 @@
-// import { NotificationContext } from "./notificationcontext";
+// import { NotificationContext } from "./createContext";
 // import { useContext } from "react";
 // const Child2 =()=>{
-//     const Data = useContext(NotificationContext)
+//     const {handleAddProperty,addProperty,setAddProperty} = useContext(NotificationContext)
+//     if(!addProperty){
+//         setAddProperty("abc")
+//     }
 // return(
 //     <>
 //     <div>i am from child2</div>
+//     <div>{addProperty}</div>
+    
    
 //     </>
 // )

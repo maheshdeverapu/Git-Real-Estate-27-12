@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { NotificationContext } from "../context/createContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Search = () => {
   const [ppd_id, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
@@ -150,6 +150,7 @@ const Search = () => {
       {/* <div>{posts[0]}</div> */}
 
       <button onClick={logoutHandling}>Logout</button>
+      <button><Link to={"/basicInfo"}>Add Property</Link></button>
       <table>
         <thead>
           <tr>

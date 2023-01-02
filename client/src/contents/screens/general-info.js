@@ -9,6 +9,7 @@ const GeneralInfo = ()=>{
                 <div>
                     <label htmlFor="name">Name</label>
                     <select id="name" name="propertyOwner">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="property-type">Dealer</option>
                     </select>
@@ -20,6 +21,7 @@ const GeneralInfo = ()=>{
                 <div>
                     <label htmlFor="postedBy">PostedBy</label>
                     <select id="postedBy" name="postedBy" placeholder="PostedBy">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -27,6 +29,7 @@ const GeneralInfo = ()=>{
                 <div>
                     <label htmlFor="sale-type">Sale Type</label>
                     <select id="sale-type" name="sale-type" >
+                        <option>select</option>
                         <option value="land">Land</option>
                         <option value="house">House</option>
                     </select>
@@ -34,6 +37,7 @@ const GeneralInfo = ()=>{
                 <div>
                     <label htmlFor="featured-package">Featured Package</label>
                     <select id="featured-package" name="featured-package" >
+                        <option>select</option>
                         <option value="land">Land</option>
                         <option value="house">House</option>
                     </select>
@@ -41,6 +45,7 @@ const GeneralInfo = ()=>{
                 <div>
                     <label htmlFor="ppd-package">PPD Package</label>
                     <select id="ppd-package" name="ppd-package" >
+                        <option>select</option>
                         <option value="land">Land</option>
                         <option value="house">House</option>
                     </select>

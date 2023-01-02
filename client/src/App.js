@@ -8,21 +8,31 @@ import GeneralInfo from './contents/screens/general-info';
 import PropertyDetails from './contents/screens/property-detail';
 import AddProperty from './contents/screens/add-property';
 import LocationInfo from './contents/screens/location-info';
-import {Link } from "react";
+import {Link, useEffect } from "react";
 import GetAll from './contents/screens/getAll';
 import Search from './contents/others/search';
 import NotificationProvider from './contents/context/notificationPovider';
+import { useNavigate } from 'react-router-dom';
+import Child1 from './contents/context/child1';
+import { NotificationContext } from './contents/context/createContext';
+const Router =()=>{
 
-
-
-function App() {
-  return (
-    <div>
-     
-          <NotificationProvider>
-        <BrowserRouter>
-        <Routes>
-          <Route path='/signup' element={ <Signup/>}/>
+  const navigate = useNavigate();
+  useEffect(()=>{
+    const user = localStorage.getItem("user")
+    // console.log(user)
+    if(!user){
+      navigate("/signin")
+    }
+    else{
+      navigate("/")
+    }
+  
+  },[])
+  return(
+    <>
+       <Routes>
+    <Route path='/signup' element={ <Signup/>}/>
           <Route path='/signin' element={<Signin/>}/>
 
 
@@ -34,12 +44,26 @@ function App() {
           <Route path='/home' element={<GetAll/>}/>
           <Route path='/getId' element={<Search/>}/>
 
+          </Routes>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <div>
+     
+         
+        <BrowserRouter>
+       
+          
+
           {/* <Route path='/parent' element={<NotificationProvider/>}/> */}
-
-
-        </Routes>
+          <Router/>
+          
+        
       </BrowserRouter>
-          </NotificationProvider>
+          
     
       
       

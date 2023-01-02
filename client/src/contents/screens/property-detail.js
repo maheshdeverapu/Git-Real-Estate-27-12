@@ -22,6 +22,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="area-unit">Area Unit</label>
                     <select id="area-unit" name="area-unit">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -29,6 +30,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="no-of-bhk">Number of BHK</label>
                     <select id="no-of-bhk" name="no-of-bhk">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -36,6 +38,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="no-of-floors">Number of Floors</label>
                     <select id="no-of-floors" name="no-of-floors">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -43,6 +46,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="attached">Attached</label>
                     <select id="attached" name="attached">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -50,6 +54,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="wester-toilet">Wester Toilet</label>
                     <select id="wester-toilet" name="wester-toilet">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -57,6 +62,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="furnished">Furnished</label>
                     <select id="furnished" name="furnished">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -64,6 +70,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="car-parking">Car Parking</label>
                     <select id="car-parking" name="car-parking">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -71,6 +78,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="lift">Lift</label>
                     <select id="lift" name="lift">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
@@ -82,6 +90,7 @@ const PropertyDetails = ()=>{
                 <div>
                     <label htmlFor="facing">Facing</label>
                     <select id="facing" name="facing">
+                        <option>select</option>
                         <option value="Owner">Owner</option>
                         <option value="Dealer">Dealer</option>
                     </select>
