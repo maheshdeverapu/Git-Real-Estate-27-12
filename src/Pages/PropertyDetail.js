@@ -1,29 +1,41 @@
-import React, { useContext } from "react"
+import React, { useContext,useState } from "react"
 import { Link } from "react-router-dom/dist"
 import { multiStepContext } from "../components/context"
 const PropertyDetail=()=>{
 
-  const {userData, setUserData} = useContext(multiStepContext)
-
+  // const {userData, setUserData} = useContext(multiStepContext)
+  const [userData, setUserData]=useState({
+    breadth:"",
+    length:""
+  
+  })
+  const handleChange=(e)=>
+  {
+    const newData= {...userData}
+    newData[e.target.id]= e.target.value
+    setUserData(newData)
+    console.log(newData);
+    
+  }
     return (
       <>
         <div id="container">
           
             <div >
               Length
-              <input value={userData["length"]} onChange={(e)=> setUserData({...userData, "length":e.target.value })} type="number"></input>
+              <input id="length" value={userData.length} onChange={(e)=> handleChange(e)} type="number"></input>
             </div>
 
 
             <div>
               Breadth
-              <input value={userData["breadth"]} onChange={(e)=> setUserData({...userData, "breadth":e.target.value })}  type="number"></input>
+              <input id="breadth" value={userData.breadth} onChange={(e)=> handleChange(e)}  type="number"></input>
             </div>
 
 
             <div>
               Total Area
-              <input value={userData["totalArea"]} onChange={(e)=> setUserData({...userData, "totalArea":e.target.value })} type="number"></input>
+              <input id="area" value={userData.area} onChange={(e)=> handleChange(e)} type="number"></input>
             </div>
 
 
@@ -31,7 +43,7 @@ const PropertyDetail=()=>{
             No of BHK:
             <br />
             <select>
-              <option value={userData["noOfBhk"]} onChange={(e)=> setUserData({...userData, "noOfBhk":e.target.value })}>Select option</option>
+              <option id="bhk" value={userData.bhk} onChange={(e)=> handleChange(e)}>Select option</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -43,7 +55,7 @@ const PropertyDetail=()=>{
             Attached:
             <br />
             <select>
-              <option value={userData["attached"]} onChange={(e)=> setUserData({...userData, "attached":e.target.value })}>Select option</option>
+              <option id="attatched" value={userData.attatched} onChange={(e)=> handleChange(e)}>Select option</option>
               <option>Yes</option>
               <option>No</option>
             </select>
@@ -54,7 +66,7 @@ const PropertyDetail=()=>{
             Furnished:
             <br />
             <select>
-              <option value={userData["furnished"]} onChange={(e)=> setUserData({...userData, "furnished":e.target.value })}>Select option</option>
+              <option id="attatched" value={userData.attatched} onChange={(e)=> handleChange(e)}>Select option</option>
               <option>Yes</option>
               <option>No</option>
             </select>

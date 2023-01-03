@@ -1,17 +1,30 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom/dist"
 import { multiStepContext } from "../components/context"
+import PropertyDetail from "./PropertyDetail"
 const GeneralInfo=()=>{
 
-  const {userData, setUserData} = useContext(multiStepContext)
+  // const {userData, setUserData} = useContext(multiStepContext)
 
+  const [userData, setUserData]=useState({
+    name:""
+
+  })
+
+  const handleChange=(e)=>
+  {
+    const newData= {...userData}
+    newData[e.target.id]= e.target.value
+    setUserData(newData)
+    console.log(newData); 
+  }
     return(
 
         <>
           <div>
             Name
             <br />
-            <select value={userData["name"]} onChange={(e)=> setUserData({...userData, "name":e.target.value })}>
+            <select id="name" value={userData.attatched} onChange={(e)=> handleChange(e)}>
               <option>Owner</option>
              
             </select>
@@ -21,7 +34,7 @@ const GeneralInfo=()=>{
             Sale Type
             <br />
             <select value={userData["saleType"]} onChange={(e)=> setUserData({...userData, "saleType":e.target.value })}>
-              <option>Select</option>
+              <option></option>
               <option>Standard Sale</option>
               <option>Bank Owned</option>
              

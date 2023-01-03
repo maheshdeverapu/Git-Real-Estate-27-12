@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext,useState } from "react"
 import { Link } from "react-router-dom/dist"
 import { multiStepContext } from "../components/context"
 
@@ -6,7 +6,21 @@ import { multiStepContext } from "../components/context"
 
 const BasicInfo=()=>{
 
-const {userData, setUserData} = useContext(multiStepContext)
+// const {userData, setUserData} = useContext(multiStepContext)
+const [userData, setUserData]=useState({
+   price:"",
+  })
+const handleChange=(e)=>
+{
+  const newData= {...userData}
+  newData[e.target.id]= e.target.value
+  setUserData(newData)
+  console.log(newData); 
+}
+
+
+
+
 
     return(
 
@@ -26,7 +40,7 @@ const {userData, setUserData} = useContext(multiStepContext)
 
             <div>
                 Price
-                <input value={userData["price"]} onChange={(e)=> setUserData({...userData, "price":e.target.value })} type="number"></input>
+                <input id="price" value={userData.price} onChange={(e)=> handleChange(e)} type="number"></input>
             </div>
             <div>
                 Property Age
