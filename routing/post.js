@@ -10,11 +10,86 @@ router.post("/createPost", userLogin, async (req, res) => {
   try {
     // console.log(req.body);
     // console.log(req.user);
-    const { property, contact, area } = req.body;
-    if (!property || !contact || !area) {
+    const {property,
+    price,
+    propertyAge,
+    propertyDescription,
+    negotable,
+    ownership, 
+    propertyApproved ,
+    bankLoan ,
+    length ,
+    breath ,
+    area,                    
+    areaUnit ,
+    noOfBhk ,
+    noOfFloor ,
+    attached ,
+    westernToilet ,
+    furnished ,
+    carParking ,
+    lift ,
+    electricity ,
+    facing ,
+ 
+    propertyOwner ,
+    contact,                       
+    postedBy ,
+    saleType ,
+    featuredPackage ,
+    PPDPackage ,
+    email ,
+    city ,
+    locationArea ,
+    pincode ,
+    address ,
+    landmark ,
+    latitude ,
+    longitude, photo  } = req.body;
+    
+    if (
+      !property||
+      !price||
+      !propertyAge||
+      !propertyDescription||
+      !negotable||
+      !ownership||
+      !propertyApproved ||
+      !bankLoan ||
+      !length ||
+      !breath ||
+      !area||                    
+      !areaUnit ||
+      !noOfBhk ||
+      !noOfFloor ||
+      !attached ||
+      !westernToilet ||
+      !furnished ||
+      !carParking ||
+      !lift ||
+      !electricity ||
+      !facing ||
+   
+      !propertyOwner ||
+      !contact||                       
+      !postedBy ||
+      !saleType ||
+      !featuredPackage ||
+      !PPDPackage ||
+      !email ||
+      !city ||
+      !locationArea ||
+      !pincode ||
+      !address ||
+      !landmark ||
+      !latitude ||
+      !longitude ||
+      !photo
+      ) {
       return res.status(422).json({
         status: "Failed",
-        message: "please enter all required fields and try again",
+        message:"enter all details",
+        error:req.body
       });
     }
     let tempId = await Post.find().sort({ ppd_id: -1 }).limit(1);
@@ -26,11 +101,46 @@ router.post("/createPost", userLogin, async (req, res) => {
     }
     const post = await Post.create({
       ppd_id: "PPD" + tempId,
-      property,
-      contact,
-      area,
       views: 0,
       status: "unsold",
+      property,
+      price,
+      propertyAge,
+      propertyDescription,
+      negotable,
+      ownership, 
+
+      propertyApproved ,
+      bankLoan ,
+      length ,
+      breath ,
+      area,                    
+      areaUnit ,
+      noOfBhk ,
+      noOfFloor ,
+      attached ,
+      westernToilet ,
+      furnished ,
+      carParking ,
+      lift ,
+      electricity ,
+      facing ,
+     
+      propertyOwner ,
+      contact,                       
+      postedBy ,
+      saleType ,
+      featuredPackage ,
+      PPDPackage ,
+      email ,
+      city ,
+      locationArea ,
+      pincode ,
+      address ,
+      landmark ,
+      latitude ,
+      longitude,
+      photo
     });
     // console.log(post,view)
     // idNum++;
@@ -40,8 +150,8 @@ router.post("/createPost", userLogin, async (req, res) => {
       post,
     });
   } catch (err) {
-    res.status(422).json({
-      status: "Failed",
+    res.status(421).json({
+      status: "Failed at catch",
       message: err.message,
     });
   }

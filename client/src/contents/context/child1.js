@@ -1,5 +1,5 @@
 // import { NotificationContext } from "./createContext";
-// import { useContext } from "react";
+// import React,{ useContext } from "react";
 // import Search from "../others/search";
 // import GetAll from "../screens/getAll";
 // import NotificationProvider from "./notificationPovider";
@@ -8,9 +8,9 @@
 // return(
 //     <NotificationProvider>
 //       <basicInfo/>
-//       <generalInfo data={Data}/>
+//       {/* <generalInfo data={Data}/>
 //       <propertyDetails data={Data}/>
-//       <locationInfo data={Data}/>
+//       <locationInfo data={Data}/> */}
 //     </NotificationProvider>
 // )
 // }

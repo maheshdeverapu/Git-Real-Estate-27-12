@@ -68,7 +68,8 @@ router.post("/signin", async(req,res)=>{
     if(!userId || !password){
         return res.status(422).json({
             status:"Failed",
-            message:"please fill all data"
+            message:"please fill all data",
+            // error:"please fill all data"
         })
     }
     const user = await User.findOne({userId : userId});

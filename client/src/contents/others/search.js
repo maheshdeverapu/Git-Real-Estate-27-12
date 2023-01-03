@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useContext } from "react";
-import { NotificationContext } from "../context/createContext";
+import "./search.css"
 import { useNavigate, Link } from "react-router-dom";
 const Search = () => {
   const [ppd_id, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
+  const [toggle,setToggle] = useState("unsold")
 
   // const {data} = useContext(NotificationContext)
 
@@ -96,12 +96,13 @@ const Search = () => {
   // }
   // else{
       const navigate = useNavigate()
+
   useEffect(() => {
     // debugger
     fetch(`/getId?ppd_id=${ppd_id}`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
+        "Authorization": localStorage.getItem("token")
       },
     })
       .then((res) => res.json())
@@ -116,7 +117,8 @@ const Search = () => {
       .finally();
   }, [ppd_id]);
 
-  const logoutHandling =()=>{
+  const logoutHandling =(e)=>{
+    e.preventDefault();
     localStorage.clear();
     navigate("/signin")
 }
@@ -149,12 +151,17 @@ const Search = () => {
       ></input>
       {/* <div>{posts[0]}</div> */}
 
-      <button onClick={logoutHandling}>Logout</button>
-      <button><Link to={"/basicInfo"}>Add Property</Link></button>
+      {/* <button onClick={logoutHandling}>Logout</button> */}
+      <button ><Link className="app-property" to={"/basicInfo"}>Add Property</Link></button>
+      <select onChange={logoutHandling} className={"logout"}>
+        <option>{(localStorage.getItem("userId")).split("@")[0]}</option>
+        <option >logout</option>
+      </select>
       <table>
         <thead>
           <tr>
             <th>PPD ID</th>
+            <th>IMAGE Link</th>
             <th>IMAGE</th>
             <th>PROPERTY</th>
             <th>CONTACT</th>
@@ -170,12 +177,14 @@ const Search = () => {
             return (
               <tr key={i}>
                 <td>{ele.ppd_id}</td>
-                <td>image</td>
+                <td><a href={ele.photo}>image</a></td>
+                <td><img src={ele.photo} alt="image" style={{"width":"50px"}}></img></td>
+                
                 <td>{ele.property}</td>
                 <td>{ele.contact}</td>
                 <td>{ele.area}</td>
                 <td>views</td>
-                <td>unsold</td>
+                <td><button key={i} onClick={()=>{setToggle("sold")}}>{toggle}</button></td>
                 <td>23</td>
                 <td>action</td>
               </tr>
