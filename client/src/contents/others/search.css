@@ -1,0 +1,11 @@
+.logout{
+    width: 400px !important;
+    height: 40px !important;
+    border: 1px solid rgb(210, 210, 210) !important;
+    border-radius: 20px !important;
+    /* background-color: rgb(193, 254, 254) !important; */
+}
+.add-property{
+    width: 100px;
+    height: 40px;
+}
