@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom/dist"
 import { multiStepContext } from "./../Context"
+
 const PropertyDetail=()=>{
 
   const {userData, setUserData} = useContext(multiStepContext)

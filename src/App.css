@@ -4,6 +4,26 @@ background: #E1F9F4;
 
 
 }
+.main {
+  display: flex;
+  flex-direction: row;
+  margin : none;
+  padding: none;
+  max-height: max-content;
+  min-height: 100vh;
+}
+.side-bar {
+  width: 20%;
+  background-color: #E1F9F4;
+  max-height: max-content;
+  min-height: 100vh;
+}
+.App {
+  text-align: center;
+  background-color: #E1F9F4;
+  max-height: max-content;
+  min-height: 100vh;
+}
 .reactanle-360{
   width: 780px;
   height: 37px;
@@ -11,15 +31,9 @@ background: #E1F9F4;
 border-radius: 29px;
 position: absolute;
 margin-top: 30px;
+margin-left: 400px;
 }
-.Rectangle-299 {
-  
-  width: 852px;
-  height: 3px;
-  background-color:  #E1F9F4;
-  position: absolute;
-  margin-top: -40px;
-}
+
 .is-active{
 
 font-family: 'Source Sans Pro';
@@ -30,6 +44,8 @@ font-size: 60px;
 line-height: 55px;
 
 color: #FFFFFF;
+
+    margin: 0px 40px 0px 0px;
 
 
 position: absolute;
@@ -54,11 +70,20 @@ line-height: 55px;
   .Info-Block{
   background-color:  #F5F5F5;
     position: absolute;
-    left: 320px;
-    margin-top: -2px;
+    left: 20px;
+    margin-top: -120px;
+    
     width: 852px;
     height: 498px;
     padding-top: 130px;
     padding-left: 80px;
+    display: inline;
     
   }
+  .num {
+    border-radius: 50%;
+    padding: 3px 10px;
+    margin: 10px;
+    color: #000000;
+    background-color:#E1F9F4;
+}
