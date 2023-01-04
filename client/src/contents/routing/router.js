@@ -39,7 +39,7 @@ const Router =()=>{
 
       const dataHandling=()=>{
 
-        debugger
+        // debugger
         // if(url){
         //   setAddProperty({...addProperties,"photo":url})
         // }
@@ -54,7 +54,7 @@ const Router =()=>{
         // console.log(localStorage.getItem("token"),"i am from .then in login page")
         // debugger
         // if(data.status == 'Failed'){
-          debugger
+          // debugger
             console.log("data in final .then",data)
             // navigate("/signin")
             // return

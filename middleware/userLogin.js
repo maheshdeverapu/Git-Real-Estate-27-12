@@ -1,4 +1,4 @@
-const {SECRET_KEY} = require("../keys");
+
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
@@ -13,7 +13,7 @@ if(!authorization){
 }
 const token = authorization
 // console.log(token)
-jwt.verify(token,SECRET_KEY,async(error,payload)=>{
+jwt.verify(token,process.env.SECRET_KEY,async(error,payload)=>{
     if(error){
         return res.status(401).json({
             status:"Failed",

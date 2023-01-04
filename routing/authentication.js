@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const {SECRET_KEY} = require("../keys");
+// const {SECRET_KEY} = require("../keys");
 const userLogin = require("../middleware/userLogin")
 
 
@@ -84,7 +84,7 @@ router.post("/signin", async(req,res)=>{
         // result == true
         console.log(err,result)
         if(result === true){
-            const token = jwt.sign({_id:user._id},SECRET_KEY);
+            const token = jwt.sign({_id:user._id},process.env.SECRET_KEY);
             const {userId} = user;
             res.json({
                 token,userId
