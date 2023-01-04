@@ -155,6 +155,7 @@ const Search = () => {
       <button ><Link className="app-property" to={"/basicInfo"}>Add Property</Link></button>
       <select onChange={logoutHandling} className={"logout"}>
         <option>{localStorage.getItem("userId")}</option>
+
         <option >logout</option>
       </select>
       <table>
