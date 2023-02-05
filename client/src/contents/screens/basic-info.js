@@ -1,100 +1,212 @@
+import React, { useState,useEffect } from "react";
+import { Link } from "react-router-dom/dist";
+import SearchHome from "../others/searchHome";
+import SideNav from "../others/sideNav";
+import MainHeader from "../others/mainHeader";
+import { useNavigate } from "react-router-dom/dist";
+import "./basic-info.css";
 
-import React,{ useaddProperties } from "react";
-import {Link} from "react-router-dom";
-import { useContext } from "react";
+const BasicInfo = ({ setAddProperty, addProperties }) => {
+  const navigate = useNavigate();
+ const [pageBasicInfoVal,setPageBasicInfoVal] = useState(false);
+ const [usenavigate,setusenavigate] = useState(false);
+  const handle=(e)=>{
+    e.preventDefault();
+    setPageBasicInfoVal(true);
+    if(!addProperties.property || !addProperties.negotable || !addProperties.price || !addProperties.ownership || !addProperties.propertyAge || !addProperties.propertyApproved || !addProperties.propertyDescription || !addProperties.bankLoan){
+      // return setPageBasicInfoVal(true);
+      // return alert('please fill all details') 
+    }
+    setusenavigate(true);
+    
+  }
+  useEffect(()=>{
+    if(usenavigate){
+      navigate("/propertyDetails");
+    }
+  },[usenavigate])
+  return (
+    <div className="home">
+      <SideNav />
+      <div className="main_home">
+        <MainHeader />
+        <h2 className="addNewProperty">Add New Property</h2>
+        <div className="sub_header">
+          <h3 className="basic_info">
+            <span>1</span>Basic Info
+          </h3>
+          <h3>
+            <span>2</span>Property Details
+          </h3>
+          <h3>
+            <span>3</span>General Info
+          </h3>
+          <h3>
+            <span>4</span>Location Info
+          </h3>
+        </div>
+        {pageBasicInfoVal?<p className="emptyAlert">Please enter all fields</p>:""}
+        <form className="form">
+          <div className="column_main">
+            <div className="column_one">
+              <div>
+              <label htmlFor="postedBy">Posted By</label>
+                <select
+                 className="column_one_child"
+                  id="postedBy"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      property: e.target.value,
+                    });
+                   
+                  }}
+                >
+                  <option>select</option>
+                  <option value="Owner">Owner</option>
+                  <option value="Dealer">Dealer</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="negotable">Negotable</label>
+                <select
+                 className="column_one_child"
+                  id="negotable"
+                  name="negotable"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      negotable: e.target.value,
+                    });
+                  }}
+                >
+                  <option>select</option>
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="price">Price</label>
+                <input
+                 className="column_one_child"
+                  type={"number"}
+                  id="price"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      price: parseInt(e.target.value),
+                    });
+                  }}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="ownership">Ownership</label>
+                <select
+                 className="column_one_child"
+                  id="ownership"
+                  name="ownership"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      ownership: e.target.value,
+                    });
+                  }}
+                >
+                  <option>select</option>
+                  <option value="Above 2 years"> Above 2 years</option>
+                  <option value="Below 2 years">Below 2 years</option>
+                </select>
+              </div>
+            </div>
 
-// import { MultistepContext } from "../notificationPovider";
-const BasicInfo = ({setAddProperty,addProperties})=>{
-    // const [addProperties,setAddProperty] = useaddProperties({Name:"",Negotiable:"",Price:"",Ownership:"",PropertyAge:"",PropertyApproved:"",PropertyDescription:"",BankLoan:""})
-    // debugger
-    // const {setAddProperty} = useContext(MultistepContext)
-    // console.log(props)
-//    console.log(addProperties)
-//    debugger
-// console.log("props",props)
-// debugger
+            <div className="column_two">
+              <div>
+                <label htmlFor="property-age">Property-Age</label>
+                <select
+                 className="column_one_child"
+                  id="property-age"
+                  name="property-age"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      propertyAge: e.target.value,
+                    });
+                  }}
+                >
+                  <option>select</option>
+                  <option value="Above 10 years">Above 10 years</option>
+                  <option value="Below 10 years">Below 10 years</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="property-approved">Property Approved</label>
+                <select
+                 className="column_one_child"
+                  id="property-approved"
+                  name="property-approved"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      propertyApproved: e.target.value,
+                    });
+                  }}
+                >
+                  <option>select</option>
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
+                </select>
+              </div>
 
-// const {setAddProperty,addProperties, p} = props;  
-// console.log("p",p,addProperties)
-        // debugger
-        // setAddProperty(addProperties)
-        // console.log(x)
-        // debugger
-
-    // const basicInfoHandling =()=>{
-    //     console.log(addProperties)
-    //     // setAddProperty(addProperties)
-    //     // setAddProperty(addProperties)
-    //     // console.log(addProperties);
-    //     // debugger
-    // }
-    return (
-        <>
-            {/* <addProperties/> */}
-            <h2>BasicInfo</h2>
-            <form>
-               
-                <div>
-                    
-                    <select onChange={(e)=>{setAddProperty({...addProperties,"property":e.target.value})}}>
-                        <option>select</option>
-                        <option value="Owner" >Owner</option>
-                        <option value="Dealer">Dealer</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="negotable">Negotable</label>
-                    <select id="negotable" name="negotable"  onChange={(e)=>{setAddProperty({...addProperties,"negotable":e.target.value})}}>
-                        <option>select</option>
-                        <option value="YES">YES</option>
-                        <option value="NO">NO</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="price">Price</label>
-                    <input type={"number"} id="price"  onChange={(e)=>{setAddProperty({...addProperties,"price":parseInt(e.target.value)})}}></input>
-                </div>
-                <div>
-                    <label htmlFor="ownership">Ownership</label>
-                    <select id="ownership" name="ownership"  onChange={(e)=>{setAddProperty({...addProperties,"ownership":e.target.value})}}>
-                        <option>select</option>
-                        <option value="Above 2 years"> Above 2 years</option>
-                        <option value="Below 2 years">Below 2 years</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="property-age">Property-Age</label>
-                    <select id="property-age" name="property-age"  onChange={(e)=>{setAddProperty({...addProperties,"propertyAge":e.target.value})}}>
-                        <option>select</option>
-                        <option value="Above 10 years">Above 10 years</option>
-                        <option value="Below 10 years">Below 10 years</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="property-approved">Property Approved</label>
-                    <select id="property-approved" name="property-approved"  onChange={(e)=>{setAddProperty({...addProperties,"propertyApproved":e.target.value})}}>
-                        <option>select</option>
-                        <option value="YES">YES</option>
-                        <option value="NO">NO</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="property-description">Property Description</label>
-                    <textarea id="property-description" name="description"  placeholder="description"  onChange={(e)=>{setAddProperty({...addProperties,"propertyDescription":e.target.value})}}></textarea>
-                </div>
-                <div>
-                    <label htmlFor="bank-loan">Bank Loan</label>
-                    <select id="bank-loan" name="bank-loan"  onChange={(e)=>{setAddProperty({...addProperties,"bankLoan":e.target.value})}}>
-                        <option>select</option>
-                        <option value="YES">YES</option>
-                        <option value="NO">NO</option>
-                    </select>
-                </div>
-                <button><Link to={"/getId"}>cancel</Link></button>
-                <button ><Link to={"/propertyDetails"}>Save & Continue</Link></button>
-            </form>
-        </>
-    )
-}
+              <div>
+                <label htmlFor="property-description">
+                  Property Description
+                </label>
+                <textarea
+                 className="column_one_child"
+                  id="property-description"
+                  name="description"
+                  placeholder="description"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      propertyDescription: e.target.value,
+                    });
+                  }}
+                ></textarea>
+              </div>
+              <div>
+                <label htmlFor="bank-loan">Bank Loan</label>
+                <select
+                 className="column_one_child"
+                  id="bank-loan"
+                  name="bank-loan"
+                  onChange={(e) => {
+                    setAddProperty({
+                      ...addProperties,
+                      bankLoan: e.target.value,
+                    });
+                  }}
+                >
+                  <option>select</option>
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div className="buttons">
+        
+            <Link className="cancel" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} to={"/getId"}>cancel</Link>
+          
+        
+            <button className="save_continue" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} onClick={(e)=>{handle(e)}}>Save & Continue</button>
+            {/* <Link className="save_continue" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} to={"/propertyDetails"}>Save & Continue</Link> */}
+          
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default BasicInfo;

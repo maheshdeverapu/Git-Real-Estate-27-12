@@ -9,7 +9,7 @@ import LocationInfo from '../screens/location-info';
 import {Link, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import GetAll from '../screens/getAll';
-import Search from '../others/search';
+import SearchMain from '../others/searchMain';
 import { useNavigate } from 'react-router-dom';
 import BasicInfo from '../screens/basic-info';
 import { useState } from "react";
@@ -108,7 +108,7 @@ const Router =()=>{
             <Route path='/locationInfo' element={<LocationInfo addProperties={addProperties} setAddProperty={setAddProperty}  dataHandling={dataHandling}/>}/>
             <Route path='/info' element={<AddProperty/>}/>
             <Route path='/home' element={<GetAll/>}/>
-            <Route path='/getId' element={<Search/>}/>
+            <Route path='/getId' element={<SearchMain/>}/>
         
             </Routes>
            

@@ -147,7 +147,7 @@ router.post("/createPost", userLogin, async (req, res) => {
     // view++;
     // console.log(idNum,view)
     res.json({
-      post,
+      post
     });
   } catch (err) {
     res.status(421).json({
@@ -159,12 +159,17 @@ router.post("/createPost", userLogin, async (req, res) => {
 
 router.get("/getId",userLogin,async(req,res)=>{
     try{
-    const {ppd_id} = req.query;
+    const {ppd_id,pageSize} = req.query;
+    const pageLimit = parseInt(req.query.limit) || 5;
+    const start = parseInt(req.query.start) || 0;
+    const end = req.query.end || pageLimit;
+    console.log(req.query,start)
     // const {ppd_id} = req.body;
     // console.log(req.body)
     // console.log(req.user,req.body);
     // const user = await Post.find({ppd_id:{$regex:/^ppd_id/i}});
-    const user = await Post.find({ppd_id:{$regex: new RegExp(ppd_id)}});
+    const user = await Post.find({ppd_id:{$regex: new RegExp(ppd_id),$options:"i"}})
+    .limit(pageLimit).skip(start);
     // const user = await Post.find({ppd_id});
     if(!user){
         return res.status(422).json({

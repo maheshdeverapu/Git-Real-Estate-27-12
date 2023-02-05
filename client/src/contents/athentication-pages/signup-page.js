@@ -6,21 +6,34 @@ import M from "materialize-css";
 import "./signup.css"
 
 const Signup = ()=>{
-    // const [signupDetails,setSignupDetails] = useState({userId:"",password:"",confirm_password:""})
     const [userId,setUserId] = useState("");
     const [password,setPassword] = useState("");
     const [confirm_password,setConfirm_password] = useState("");
     const [popUp,setPopup] = useState("");
+    const [detailsValidation,setDetailsValidation] = useState(false);
+    const [userIdValidation,setUserIdValidation] = useState(false);
+    const [passwordLength,setPasswordLength] = useState(false);
+    const [passwordValidation,setPasswordValidation] = useState(false);
 
     const navigate = useNavigate();
-    const signupHandling = ()=>{
-        // console.log(signupDetails)
-        // const {userId,password,confirm_password} = signupDetails;
-        console.log(userId,password,confirm_password)
-        // debugger
+    const userIdReg = /@./ 
+    const passwordReg = /^[a-zA-Z0-9]@*$/
+    const signupHandling = (e)=>{
+        e.preventDefault();
+        setDetailsValidation(false);
+        setUserIdValidation(false);
+        setPasswordLength(false);
+        setPasswordValidation(false);
         if(!userId || !password || !confirm_password){
-            M.toast({html: 'please enter all fields'})
-            return 
+           return setDetailsValidation(true);
+        }
+        else if(!userIdReg.test(userId)){
+            return setUserIdValidation(true);}
+        else if(password.length < 8){
+            return setPasswordLength(true);
+        }
+        else if(passwordReg.test(password)){
+            return setPasswordValidation(true);
         }
         fetch("/signup",{
             method :"post",
@@ -33,25 +46,21 @@ const Signup = ()=>{
         }).then(res=>res.json()).then((data)=>{
             // setPopup(data.message)
             console.log(data,data.error)
-            if(data){
-            M.toast({html: 'I am a toast!'})
+            if(data.error){
+                return alert(data.error);
             }
-            else{
-            // debugger
-            M.toast({html: 'successfully registered!'})
-        }
+            alert('signup successfull');
+            navigate("/signin")     
     }).catch((err)=>{
-        // debugger
-        M.toast({html: err.message})
         console.log(err,"i am here")
     }).finally()
-    navigate("/signin")
-
-
     }
     return(
         <div className={"signup-page"}>
-            {/* <p >Logo</p> */}
+            {detailsValidation?<p className="emptyAlert">Password enter all fields</p>:""}
+            {userIdValidation?<p className="emptyAlert">Please enter valid userId</p>:""}
+            {passwordLength?<p className="emptyAlert">Password should have atleast 8 characters</p>:""}
+            {passwordValidation?<p className="emptyAlert">Password should have '@'</p>:""}
             <div className="signup-content">
             <img className="signup-logo" src="https://media.istockphoto.com/id/1217096485/vector/geometric-logo-related-to-property-real-estate-agent-or-construction.jpg?s=612x612&w=0&k=20&c=ZdnrJ4sTVP3XwOrCzBHlbmclDVGtvXJwmQpImjkCM3Q="></img>
             <p className="signup-details">create new accout</p>
@@ -69,7 +78,7 @@ const Signup = ()=>{
                     {/* <label htmlFor={"confirm-password"}>Confirm Password</label> */}
                     <input className="signup-confirm-password" type={"password"} id={"confirm-password"} placeholder={"CONFIRM PASSWORD"} onChange={(event)=>{setConfirm_password(event.target.value)}}></input>
                 </div>
-                <button  className="signup-submit" onClick={signupHandling}>Signup</button>
+                <button  className="signup-submit" onClick={(e)=>{signupHandling(e)}}>Signup</button>
                 {popUp && (
                     <>
                     <div>{popUp}</div>

@@ -1,218 +1,70 @@
-/* @import  url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"); */
-/* .signup-page{
-    width: 600px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin: auto;
-}
-.signup-header{
-    text-align: center;
-} */
-
-/* *{
-    background-color:#E1F9F4;
-}  */
-
-
+.emptyAlert{
+    position: fixed;
+    color:red;
+    right: 500px;
+    top:100px;
+     margin: 0px;
+     font-size: 20px;
+    }
 .login-page{
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    background-color:rgb(225,249,244);
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(225,249,244)
+}
+.login-logo{
+    width: 30%;
 }
 .login-content{
-
-    position: absolute;
-left: 30%;
-right: 30%;
-top: 20%;
-bottom: 10%;
-
-background: rgb(255, 255, 255);
-/* border: 1px solid black; */
-border-radius: 10px;
-}
-
-/* .login-content{
-   
-    position: absolute;
-   
-    width: 800px;
-    height: 700px;
-     left: 300px;
-    top: 100px; 
-    border:1px solid red
-} */
-
-.login-logo{
-    position: absolute;
-   
-width: 150px;
-height: 150px;
-
-left: 38%;
-top: 5%;
-
-font-family: 'Open Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 18px;
-/* identical to box height, or 45% */
-
-display: flex;
-align-items: center;
-letter-spacing: 0.25px;
-
-color: #4C57B6;
-
-}
-.login-details{
-    position: absolute;
-    width: 328px;
-    height: 22px;
-    left: 28%;
-    top: 23%;
-
-font-family: 'Open Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 22px;
-/* identical to box height, or 147% */
-
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.25px;
-
-color: #000000;
-
-opacity: 0.6;
-}
-.login-mail{
-    box-sizing: border-box;
-
-position: absolute;
-height: 54px;
-left: 10%;
-right: 10%;
-top: 40%;
-
-/* Colors/Neutral/White */
-
-background: #FFFFFF;
-border: 1px solid #E2E2E2;
-border-radius: 5px;
-}
-
-.login-password{
-box-sizing: border-box;
-
-position: absolute;
-height: 54px;
-left: 10%;
-width: 460px !important;
-top: 55%;
-border: 1px solid #c1c1c1 !important;
-border-radius: 5px !important;
-/* Colors/Neutral/White */
-
-background: #FFFFFF;
-border: 1px solid #E2E2E2;
-border-radius: 5px;
-}
-
-
-.login-signup{
-    
-position: absolute;
-left: 34.38%;
-right: 34.38%;
-top: 85%;
-bottom: 29.49%;
-text-align: center;
-text-decoration: none;
-
-
-}
-.login-submit{
-    
-position: absolute;
-left: 10%;
-right: 10%;
-top: 75%;
-
-bottom: 17%;
-
-
-
-background: #4C57B6;
-border-radius: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .signup-page{
-    width: 564px;
-    height: 583px;
-    background-color: #FFFFFF;
-    border: 1px solid red;
+    position: fixed;
+    width: 500px;
+    height: 40vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    margin-left: 37%;
     border-radius: 10px;
-    margin: auto;
-    margin-top: 220px; */
-    /* position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%; */
-/* display: flex; */
-/* 
-.signup{
-    text-align: center;
+    box-shadow: 1px 1px 30px gray;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    gap: 20px;
+    
 
 }
-.logo{
-    font-family: 'Open Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 18px;
+form>div>input{
+    width: 400px;
+    height: 50px;
+    background-color: white;
+    border:1px solid rgb(196, 196, 196);
+    border-radius: 5px;
+}
+form>button{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(76,87,182);
+    
+    border-radius: 5px;
+    align-self: center;
+}
+.login-signup{
+    align-self: center;
+    text-decoration: none;
+}
+.login-password{
+    position: relative;
 
-letter-spacing: 0.25px;
-
-color: #4C57B6;
-} */
-/* .content{
-    box-sizing: border-box;
-
-
-    background: #FFFFFF;
-border: 1px solid #E2E2E2;
-border-radius: 5px;
-} */
+}
+.password_type{
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+.password_type1{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
