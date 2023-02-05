@@ -20,20 +20,20 @@ router.post("/signup", async(req,res)=>{
     if(!userId || !password || !confirm_password){
         return res.status(422).json({
             status:"Failed",
-            message:"please enter all fields"
+            error:"please enter all fields"
         })
     }
     if(password !== confirm_password){
         return res.status(421).json({
             status:"Failed",
-            message:"password && confirm password must be same"
+            error:"password && confirm password must be same"
         })
     }
     let user = await User.findOne({userId:userId});
     if(user){
         return res.status(420).json({
             status:"Failed",
-            message:"userId already exists"
+            error:"userId already exists"
         })
     }
 
@@ -41,7 +41,7 @@ router.post("/signup", async(req,res)=>{
         if(err){
             return res.json({
                 status:"Failed",
-                message:err.message
+                error:err.message
             }) 
         }
         user = await User.create({
@@ -58,7 +58,7 @@ router.post("/signup", async(req,res)=>{
 }catch(err){
     res.status(400).json({
         status:"Failed",
-        message:err.message
+        error:err.message
     })
 }
 })
@@ -68,7 +68,7 @@ router.post("/signin", async(req,res)=>{
     if(!userId || !password){
         return res.status(422).json({
             status:"Failed",
-            message:"please fill all data",
+            error:"please fill all data",
             // error:"please fill all data"
         })
     }
@@ -76,7 +76,7 @@ router.post("/signin", async(req,res)=>{
     if(!user){
         return res.status(422).json({
             status:"Failed",
-            message:"userId not exists"
+            error:"userId not exists"
         })
     }
     // console.log(password,user)      ???????????????
@@ -93,7 +93,7 @@ router.post("/signin", async(req,res)=>{
         else{
             return res.status(422).json({
                 status:"Failed",
-                message:"plese verify user details and try again"
+                error:"plese verify user details and try again"
             })
         }
     });

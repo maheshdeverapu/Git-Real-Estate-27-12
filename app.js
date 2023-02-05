@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors")
 
 // const port = 5000;
 
@@ -60,6 +61,7 @@ connectDatabase();
 
 // mongoose.connect(MONGOURI,{ useNewUrlParser: true, useUnifiedTopology: true }, () => {
 //     console.log('connected to DB')})
+app.use(cors());
 app.use(express.json());
 app.use(require("./routing/authentication"));
 app.use(require("./routing/post"));
