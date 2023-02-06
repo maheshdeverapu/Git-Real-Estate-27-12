@@ -132,7 +132,7 @@ const SearchHome = () => {
             onChange={(e) => {
               setSearch(e.target.value);
             }}
-            placeholder="search"
+            placeholder="search PPD ID"
           ></input>
           <i className="fa-solid fa-magnifying-glass mag_glass"></i>
       </div>

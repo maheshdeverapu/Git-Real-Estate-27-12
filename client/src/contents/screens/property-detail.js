@@ -11,12 +11,13 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
   const [pageAddPropertyVal,setPageAddPropertyVal] = useState(false);
   const [usenavigateTwo,setusenavigateTwo] = useState(false);
   const navigate = useNavigate();
+  const {length,breath,area,areaUnit,noOfBhk,noOfFloor,attached,westernToilet,furnished,carParking,lift,electricity,facing} = addProperties;
   const propertyPageHandle=(e)=>{
     e.preventDefault();
     setPageAddPropertyVal(false);
-    // if(!addProperties.length || !addProperties.breath || !addProperties.area || !addProperties.areaUnit || !addProperties.noOfBhk || !addProperties.noOfFloor || !addProperties.attached || !addProperties.westernToilet || !addProperties.furnished || !addProperties.carParking || !addProperties.lift || !addProperties.electricity || !addProperties.facing){
-    //   return setPageAddPropertyVal(true);
-    // }
+    if(!addProperties.length || !addProperties.breath || !addProperties.area || !addProperties.areaUnit || !addProperties.noOfBhk || !addProperties.noOfFloor || !addProperties.attached || !addProperties.westernToilet || !addProperties.furnished || !addProperties.carParking || !addProperties.lift || !addProperties.electricity || !addProperties.facing){
+      return setPageAddPropertyVal(true);
+    }
     setusenavigateTwo(true);
     // navigate("/generalInfo");
   }
@@ -55,6 +56,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_one_child"
                   type={"number"}
                   id="length"
+                  value={length}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -69,6 +71,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_one_child"
                   type={"number"}
                   id="breath"
+                  value={breath}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -83,6 +86,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_one_child"
                   type={"number"}
                   id="total-area"
+                  value={area}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -97,6 +101,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_one_child"
                   id="area-unit"
                   name="area-unit"
+                  value={areaUnit}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -105,8 +110,8 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="Sq.meters">Sq.meters</option>
+                  <option value="Sq.foot">Sq.foot</option>
                 </select>
               </div>
               <div>
@@ -115,6 +120,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_one_child"
                   id="no-of-bhk"
                   name="no-of-bhk"
+                  value={noOfBhk}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -123,8 +129,9 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="1 BHK">1 BHK</option>
+                  <option value="2 BHK">2 BHK</option>
+                  <option value="3 BHK">3 BHK</option>
                 </select>
               </div>
               <div>
@@ -133,6 +140,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_one_child"
                   id="no-of-floors"
                   name="no-of-floors"
+                  value={noOfFloor}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -141,8 +149,9 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
                 </select>
               </div>
               <div>
@@ -151,6 +160,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_one_child"
                   id="attached"
                   name="attached"
+                  value={attached}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -159,8 +169,8 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="yes">YES</option>
+                  <option value="no">NO</option>
                 </select>
               </div>
             </div>
@@ -171,6 +181,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_two_child"
                   id="wester-toilet"
                   name="wester-toilet"
+                  value={westernToilet}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -179,8 +190,8 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="yes">YES</option>
+                  <option value="no">NO</option>
                 </select>
               </div>
               <div>
@@ -189,6 +200,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_two_child"
                   id="furnished"
                   name="furnished"
+                  value={furnished}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -197,8 +209,8 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="yes">YES</option>
+                  <option value="no">NO</option>
                 </select>
               </div>
               <div>
@@ -207,6 +219,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_two_child"
                   id="car-parking"
                   name="car-parking"
+                  value={carParking}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -215,8 +228,8 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="yes">YES</option>
+                  <option value="no">NO</option>
                 </select>
               </div>
               <div>
@@ -225,13 +238,14 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_two_child"
                   id="lift"
                   name="lift"
+                  value={lift}
                   onChange={(e) => {
                     setAddProperty({ ...addProperties, lift: e.target.value });
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="yes">YES</option>
+                  <option value="no">NO</option>
                 </select>
               </div>
               <div>
@@ -240,6 +254,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_two_child"
                   type={"number"}
                   id="electricity"
+                  value={electricity}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -254,6 +269,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   className="column_two_child"
                   id="facing"
                   name="facing"
+                  value={facing}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -262,8 +278,10 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   }}
                 >
                   <option>select</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Dealer">Dealer</option>
+                  <option value="North">North</option>
+                  <option value="South">South</option>
+                  <option value="East">East</option>
+                  <option value="West">West</option>
                 </select>
               </div>
             </div>

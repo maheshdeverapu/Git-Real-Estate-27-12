@@ -46,7 +46,7 @@ router.post("/createPost", userLogin, async (req, res) => {
     landmark ,
     latitude ,
     longitude, photo  } = req.body;
-    
+    // console.log(req.body)
     if (
       !property||
       !price||
@@ -88,8 +88,8 @@ router.post("/createPost", userLogin, async (req, res) => {
       ) {
       return res.status(422).json({
         status: "Failed",
-        message:"enter all details",
-        error:req.body
+        error:"enter all details",
+        // error:req.body
       });
     }
     let tempId = await Post.find().sort({ ppd_id: -1 }).limit(1);
@@ -152,7 +152,7 @@ router.post("/createPost", userLogin, async (req, res) => {
   } catch (err) {
     res.status(421).json({
       status: "Failed at catch",
-      message: err.message,
+      error: err.message,
     });
   }
 });
