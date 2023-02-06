@@ -46,7 +46,7 @@ const Signin = ()=>{
          
             <div className="login-content">
                 <img className="login-logo"  src="https://media.istockphoto.com/id/1217096485/vector/geometric-logo-related-to-property-real-estate-agent-or-construction.jpg?s=612x612&w=0&k=20&c=ZdnrJ4sTVP3XwOrCzBHlbmclDVGtvXJwmQpImjkCM3Q="></img>
-                <p  className="login-details">enter your credentials to access your accout</p>
+                <p  className="login-details">enter your credentials to access your account</p>
                 <form>
                     <div>
                         <input className="login-mail" placeholder="MailID" type="text" id="userid" onChange={(event)=>{setUserId(event.target.value)}}></input>

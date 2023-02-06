@@ -16,11 +16,12 @@ import { useState } from "react";
 const Router =()=>{
 
     const navigate = useNavigate();
+    const navigates = useNavigate();
     useEffect(()=>{
       const user = localStorage.getItem("user")
       // console.log(user)
       if(!user){
-        navigate("/signin")
+        navigate("/")
       }
       
     
@@ -56,14 +57,19 @@ const Router =()=>{
         // if(data.status == 'Failed'){
           // debugger
             console.log("data in final .then",data)
+            if(data.error){
+              return alert(data.error)
+            }
+            alert('successfully posted')
+            setAddProperty({})
+            navigates("/getId")
             // navigate("/signin")
             // return
-        // }
-      }).catch((err)=>{
-        console.log(err)
-      })
-      navigate("/getId")
-      setAddProperty({})
+            // }
+          }).catch((err)=>{
+            console.log(err)
+          })
+      
       // debugger;
     // },[finaldatas])
       
@@ -99,7 +105,7 @@ const Router =()=>{
        
          <Routes>
       <Route path='/signup' element={ <Signup/>}/>
-            <Route path='/signin' element={<Signin/>}/>
+            <Route path='/' element={<Signin/>}/>
   
   
             <Route path='/basicInfo' element={<BasicInfo addProperties={addProperties} setAddProperty={setAddProperty}/>}/>

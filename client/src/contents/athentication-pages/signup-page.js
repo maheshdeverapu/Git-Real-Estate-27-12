@@ -87,6 +87,7 @@ const Signup = ()=>{
                 )}
             </form>
             </div>
+                <div className="login-signIn">Have an account?<Link  to={"/"}>SignIn</Link></div>
         </div>
 
     )

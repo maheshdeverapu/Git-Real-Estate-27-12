@@ -8,13 +8,14 @@ import "./basic-info.css";
 
 const BasicInfo = ({ setAddProperty, addProperties }) => {
   const navigate = useNavigate();
- const [pageBasicInfoVal,setPageBasicInfoVal] = useState(false);
- const [usenavigate,setusenavigate] = useState(false);
+  const [pageBasicInfoVal,setPageBasicInfoVal] = useState(false);
+  const [usenavigate,setusenavigate] = useState(false);
+  const {property,negotable,price,ownership,propertyAge,propertyApproved,propertyDescription,bankLoan} = addProperties;
   const handle=(e)=>{
     e.preventDefault();
     setPageBasicInfoVal(true);
     if(!addProperties.property || !addProperties.negotable || !addProperties.price || !addProperties.ownership || !addProperties.propertyAge || !addProperties.propertyApproved || !addProperties.propertyDescription || !addProperties.bankLoan){
-      // return setPageBasicInfoVal(true);
+      return setPageBasicInfoVal(true);
       // return alert('please fill all details') 
     }
     setusenavigate(true);
@@ -54,6 +55,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                 <select
                  className="column_one_child"
                   id="postedBy"
+                  value={property}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -73,6 +75,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                  className="column_one_child"
                   id="negotable"
                   name="negotable"
+                  value={negotable}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -91,6 +94,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                  className="column_one_child"
                   type={"number"}
                   id="price"
+                  value={price}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -105,6 +109,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                  className="column_one_child"
                   id="ownership"
                   name="ownership"
+                  value={ownership}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -126,6 +131,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                  className="column_one_child"
                   id="property-age"
                   name="property-age"
+                  value={propertyAge}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -144,6 +150,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                  className="column_one_child"
                   id="property-approved"
                   name="property-approved"
+                  value={propertyApproved}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -166,6 +173,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                   id="property-description"
                   name="description"
                   placeholder="description"
+                  value={propertyDescription}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,
@@ -180,6 +188,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                  className="column_one_child"
                   id="bank-loan"
                   name="bank-loan"
+                  value={bankLoan}
                   onChange={(e) => {
                     setAddProperty({
                       ...addProperties,

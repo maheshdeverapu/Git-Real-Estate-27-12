@@ -26,6 +26,7 @@ const GeneralInfo=()=>{
             <br />
             <select id="name" value={userData.attatched} onChange={(e)=> handleChange(e)}>
               <option>Owner</option>
+              <option></option>
              
             </select>
           </div>

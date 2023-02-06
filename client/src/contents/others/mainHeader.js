@@ -21,7 +21,7 @@ const MainHeader = () => {
   const logoutHandling = (e) => {
     e.preventDefault();
     localStorage.clear();
-    navigate("/signin");
+    navigate("/");
   };
   return (
     <div className="main_header">
