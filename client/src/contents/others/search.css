@@ -1,10 +1,10 @@
-.home{
+/* .home{
     display: flex;
     flex-direction: row;
 }
 .side_nav{
     width: 20%;
-    height: 100vh;
+    min-height: 100vh !important;
     background-color: skyblue;
     display: flex;
     flex-direction: column;
@@ -67,14 +67,14 @@
 }
 .main_content{
     width: 100%;
-    height: 60vh;
+    min-height: 60vh;
 }
 table{
     width: 1400px;
-    height: 60vh;
-    /* margin: 10px 50px; */
+    min-height: 60vh;
+
     background-color: rgb(209, 209, 209);
-    /* border-collapse:separate; */
+ 
     border-spacing: 0 20px;
     padding:30px;
     
@@ -83,14 +83,14 @@ tr,th{
     height: 80px;
 }
 td{
-    /* border-radius: 20px; */
+ 
     text-align: center;
     padding: 20px 0px;
 }
 
 tr{
     background-color: rgb(255, 255, 255);
-    /* border: 1px solid gray; */
+
     
 }
 tr,th:first-child,td:first-child{
@@ -123,7 +123,7 @@ tr,th:last-child,td:last-child{
 .app-property-button{
     box-shadow: 10px 10px 10px gray;
 }
-/* .fa-solid{
-    position:absolute;
-    left: 530px;
-} */
+.pagination_down{
+   
+}
+ */

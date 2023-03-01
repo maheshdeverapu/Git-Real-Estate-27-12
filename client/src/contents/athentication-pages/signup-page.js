@@ -50,7 +50,7 @@ const Signup = ()=>{
                 return alert(data.error);
             }
             alert('signup successfull');
-            navigate("/signin")     
+            navigate("/")     
     }).catch((err)=>{
         console.log(err,"i am here")
     }).finally()

@@ -142,10 +142,6 @@ router.post("/createPost", userLogin, async (req, res) => {
       longitude,
       photo
     });
-    // console.log(post,view)
-    // idNum++;
-    // view++;
-    // console.log(idNum,view)
     res.json({
       post
     });
@@ -164,13 +160,9 @@ router.get("/getId",userLogin,async(req,res)=>{
     const start = parseInt(req.query.start) || 0;
     const end = req.query.end || pageLimit;
     console.log(req.query,start)
-    // const {ppd_id} = req.body;
-    // console.log(req.body)
-    // console.log(req.user,req.body);
-    // const user = await Post.find({ppd_id:{$regex:/^ppd_id/i}});
+ 
     const user = await Post.find({ppd_id:{$regex: new RegExp(ppd_id),$options:"i"}})
     .limit(pageLimit).skip(start);
-    // const user = await Post.find({ppd_id});
     if(!user){
         return res.status(422).json({
             status:"Failed",

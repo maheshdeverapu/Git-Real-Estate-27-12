@@ -1,8 +1,8 @@
 import "./sideNav.css";
-const SideNav =()=>{
+const SideNav =({setCurrentPages})=>{
     return(
         <div className="side_nav">
-        <h1>Logo</h1>
+        <img onClick={setCurrentPages} className="login-logo home_logo"  src="https://media.istockphoto.com/id/1217096485/vector/geometric-logo-related-to-property-real-estate-agent-or-construction.jpg?s=612x612&w=0&k=20&c=ZdnrJ4sTVP3XwOrCzBHlbmclDVGtvXJwmQpImjkCM3Q="></img>
         <div className="side_nav_content">
           <div>
             <h3><i className="fa-solid fa-house"></i></h3>

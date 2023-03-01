@@ -41,7 +41,7 @@ const GeneralInfo = ({ setAddProperty, addProperties, setUrl }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setUrl(data.url);
+        setUrl(data.secure_url);
         // console.log(data.url)
       })
       .catch((err) => console.log(err));

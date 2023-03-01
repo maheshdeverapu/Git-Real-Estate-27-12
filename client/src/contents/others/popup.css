@@ -29,8 +29,8 @@
 }
 .popInner{
     background-color: aqua;
-    height: 400px;
-    width: 600px;
+    height: 650px;
+    width: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +39,7 @@
 }
 .popup_image{
     
-    width:600px;
-    height:400px;
+    width:900px;
+    height:650px;
 
 }
