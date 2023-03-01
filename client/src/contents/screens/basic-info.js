@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom/dist";
-import SearchHome from "../others/searchHome";
+
 import SideNav from "../others/sideNav";
 import MainHeader from "../others/mainHeader";
 import { useNavigate } from "react-router-dom/dist";

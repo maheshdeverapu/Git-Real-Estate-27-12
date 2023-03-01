@@ -1,7 +1,7 @@
 .sub_header{
     display: flex;
     height: 60px;
-    /* width: 100%; */
+   
     flex-direction: row;
     justify-content: space-between;
     margin: 40px 150px;
@@ -40,7 +40,7 @@
          font-size: 20px;
         }
 .form{
-    /* border: 1px solid gray; */
+
     margin: 0px 150px;
     padding: 40px;
     border-radius: 30px;

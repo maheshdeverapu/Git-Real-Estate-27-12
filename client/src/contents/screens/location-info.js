@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import AddProperty from "./add-property";
 import SideNav from "../others/sideNav";
 import MainHeader from "../others/mainHeader";
 import "./location-info.css";
