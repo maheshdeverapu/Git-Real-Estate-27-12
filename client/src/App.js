@@ -10,7 +10,7 @@ import AddProperty from './contents/screens/add-property';
 import LocationInfo from './contents/screens/location-info';
 import {Link, useEffect } from "react";
 import GetAll from './contents/screens/getAll';
-import Search from './contents/others/search';
+
 
 import { useNavigate } from 'react-router-dom';
 

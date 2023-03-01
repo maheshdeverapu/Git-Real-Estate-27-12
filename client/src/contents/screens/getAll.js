@@ -2,7 +2,6 @@ import { get } from "mongoose";
 import React from "react";
 import {useState, useEffect} from "react";
 import Card from "./card";
-import Search from "../others/search";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { NotificationContext } from "../context/createContext";
