@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Card from "./card";
 import Popup from "./popup";
 
-const SearchHome = () => {
+const SearchHome = ({currentPages}) => {
   const [ppd_id, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
   const [imageOverlay, setImageOverlay] = useState(false);
@@ -58,7 +58,7 @@ const SearchHome = () => {
           }}
         >
           next
-          <i className="fa-solid fa-angles-right"></i>
+          <i className="fa-solid pagination_butt pag_next fa-angles-right"></i>
         </button>
     }
         </div>
@@ -76,7 +76,7 @@ const SearchHome = () => {
               );
             }}
           >
-            <i className="fa-solid fa-angles-left"></i>
+            <i className="fa-solid pagination_butt fa-angles-left"></i>
             prev
           </button>
           <p>{currentPage + 1}</p>
@@ -92,7 +92,7 @@ const SearchHome = () => {
             }}
           >
             next
-            <i className="fa-solid fa-angles-right"></i>
+            <i className="fa-solid pagination_butt pag_next fa-angles-right"></i>
           </button>
     }
         </div>
@@ -109,7 +109,7 @@ const SearchHome = () => {
               );
             }}
           >
-            <i className="fa-solid fa-angles-left"></i>
+            <i className="fa-solid pagination_butt fa-angles-left"></i>
             prev
           </button>
           <p>{currentPage + 1}</p>

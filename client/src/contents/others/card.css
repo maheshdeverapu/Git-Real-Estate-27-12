@@ -2,3 +2,34 @@
     border: 0px;
     background-color: white;
 }
+.side_nav_inner{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(225,249,244);
+    padding: 20px;
+    color: rgb(162, 162, 162);
+    min-height: 550px;
+
+}
+.inner_content{
+    display: flex;
+    flex-direction: row;
+    gap: 350px;
+}
+.side_nav_inner>button{
+    border: 0px;
+    background-color: rgb(225,249,244);
+    margin-top: 30px;
+    text-align: left;
+}
+.fa-solid{
+    margin-right: 10px;
+    color: rgb(162, 162, 162);
+}
+.full_property_data{
+    background-color: aliceblue;
+    border-radius: 0 !important;
+}
+.additional_info{
+    text-align: left;
+}
