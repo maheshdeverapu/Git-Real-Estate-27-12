@@ -15,17 +15,10 @@
 }
 .popup_button{
     position: absolute;
-    /* z-index: 3; */
-    /* position: fixed; */
     top: 0;
     right: 0;
-    /* width: 4%; */
     height: 30px;
     width: 30px;
-    /* display: flex; */
-    
-    /* justify-content:flex-start; */
-    /* align-self: flex-end; */
 }
 .popInner{
     background-color: aqua;

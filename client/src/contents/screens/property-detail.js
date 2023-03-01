@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AddProperty from "./add-property";
-import SearchHome from "../others/searchHome";
 import SideNav from "../others/sideNav";
 import MainHeader from "../others/mainHeader";
 import "./property-details.css";

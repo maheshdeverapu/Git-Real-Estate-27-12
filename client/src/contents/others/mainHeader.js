@@ -1,23 +1,12 @@
 import "./mainHeader.css";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import "./searchMain.css";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const MainHeader = () => {
-  const [ppd_id, setSearch] = useState("");
-  const [posts, setPosts] = useState([]);
-  const [imageOverlay, setImageOverlay] = useState(false);
-  const [popup, setPopup] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
   const [displayLogout, setDisplayLogout] = useState(false);
-  const [basicInfo, setBasicInfo] = useState(false);
-
-  const [currentPage, setCurrentPage] = useState(0);
-  const [pageSize] = useState(10);
-
   const navigate = useNavigate();
-
   const logoutHandling = (e) => {
     e.preventDefault();
     localStorage.clear();

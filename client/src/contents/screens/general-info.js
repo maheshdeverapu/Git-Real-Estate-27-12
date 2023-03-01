@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import AddProperty from "./add-property";
 import SideNav from "../others/sideNav";
 import MainHeader from "../others/mainHeader";
 import "./general-info.css";  
@@ -29,8 +28,7 @@ const GeneralInfo = ({ setAddProperty, addProperties, setUrl }) => {
   const handle = async (e) => {
     e.preventDefault();
     setImage(e.target.files[0]);
-    // console.log(e.target.files[0]);
-    // debugger
+   
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "real-Estate-image");

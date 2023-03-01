@@ -6,11 +6,9 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import BasicInfo from './contents/screens/basic-info';
 import GeneralInfo from './contents/screens/general-info';
 import PropertyDetails from './contents/screens/property-detail';
-import AddProperty from './contents/screens/add-property';
 import LocationInfo from './contents/screens/location-info';
 import {Link, useEffect } from "react";
-import GetAll from './contents/screens/getAll';
-import Search from './contents/others/search';
+
 
 import { useNavigate } from 'react-router-dom';
 
