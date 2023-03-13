@@ -4,12 +4,8 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 let idNum = 123456;
-// let view = 1;
-
 router.post("/createPost", userLogin, async (req, res) => {
   try {
-    // console.log(req.body);
-    // console.log(req.user);
     const {property,
     price,
     propertyAge,
