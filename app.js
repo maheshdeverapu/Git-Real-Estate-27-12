@@ -19,7 +19,7 @@ const port = process.env.port || 5000;
 mongoose.set('strictQuery', false)
 
 const db = process.env.MONGOURI;
-console.log(db)
+// console.log(db)
 const connectDatabase =async()=>{
     try {
         await mongoose.connect(db);
