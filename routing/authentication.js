@@ -8,10 +8,6 @@ const jwt = require("jsonwebtoken");
 const userLogin = require("../middleware/userLogin")
 
 
-// router.get("/home",(req,res)=>{
-//     res.send("done")
-// })
-
 router.post("/signup", async(req,res)=>{
     try{
         console.log(req.body)
@@ -79,7 +75,6 @@ router.post("/signin", async(req,res)=>{
             error:"userId not exists"
         })
     }
-    // console.log(password,user)      ???????????????
     bcrypt.compare(password, user.password, (err, result)=>{
         // result == true
         console.log(err,result)

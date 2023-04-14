@@ -27,10 +27,11 @@ const GeneralInfo = ({ setAddProperty, addProperties, setUrl }) => {
 
   const handle = async (e) => {
     e.preventDefault();
-    setImage(e.target.files[0]);
+    let selectImage = e.target.files[0];
+    // setImage(e.target.files[0]);
    
-    const data = new FormData();
-    data.append("file", image);
+    const data = await new FormData();
+    data.append("file", selectImage);
     data.append("upload_preset", "real-Estate-image");
     data.append("cloud_name", "dcfqb1dtn");
     fetch("https://api.cloudinary.com/v1_1/dcfqb1dtn/image/upload", {
@@ -40,7 +41,7 @@ const GeneralInfo = ({ setAddProperty, addProperties, setUrl }) => {
       .then((res) => res.json())
       .then((data) => {
         setUrl(data.secure_url);
-        // console.log(data.url)
+        console.log(data.secure_url)
       })
       .catch((err) => console.log(err));
   };

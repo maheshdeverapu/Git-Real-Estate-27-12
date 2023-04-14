@@ -118,7 +118,17 @@ const SearchHome = ({currentPages}) => {
     }
   };
 
+//   console.log(posts)
+// const filterByHouse = (e)=>{
+//   e.preventDefault();
 
+
+// }
+// const filterByLand = (e)=>{
+//   e.preventDefault();
+
+
+// }
   return (
     <div>
      <div className="main_sub_header">
@@ -137,6 +147,14 @@ const SearchHome = ({currentPages}) => {
           <i className="fa-solid fa-magnifying-glass mag_glass"></i>
       </div>
       </div>
+      {/* <div>
+        <select id="filtering">
+          <option style={{height:'60px'}} className="filter_options">Filter by All</option>
+        
+          <option onClick={(e)=>{filterByHouse(e)}} className="filter_options">Filter by House</option>
+          <option onClick={(e)=>{filterByLand(e)}} className="filter_options">Filter by Land</option>
+        </select>
+      </div> */}
        
             <Link className="app-property app-property-button" to={"/basicInfo"}>
               Add Property

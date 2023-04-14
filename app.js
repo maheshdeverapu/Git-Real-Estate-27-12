@@ -15,7 +15,8 @@ const db = process.env.MONGOURI;
 // console.log(db)
 const connectDatabase =async()=>{
     try {
-        await mongoose.connect(db);
+         await mongoose.connect(db);
+      
         console.log('MongoDB is Connected...')
     } catch (err) {
         console.error(err.message);
@@ -23,6 +24,7 @@ const connectDatabase =async()=>{
         process.exit(1)
     }
 }
+
 connectDatabase();
 app.use(cors());
 app.use(express.json());
