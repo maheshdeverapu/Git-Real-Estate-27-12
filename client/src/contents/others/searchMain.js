@@ -4,7 +4,7 @@ import SearchHome from "./searchHome";
 import SideNav from "./sideNav";
 import MainHeader from "./mainHeader";
 
-const SearchMain = () => {
+const SearchMain = ({setAddProperty,addProperties,setEditPost}) => {
 
   return (
     <div className="home">
@@ -12,7 +12,7 @@ const SearchMain = () => {
       <div className="main_home">
         <MainHeader/>
               <div >
-                <SearchHome/>
+                <SearchHome setAddProperty={setAddProperty} addProperties ={addProperties} setEditPost={setEditPost}/>
               </div>
       </div>
     </div>

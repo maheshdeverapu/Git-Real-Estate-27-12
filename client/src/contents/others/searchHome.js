@@ -1,11 +1,18 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, CSSProperties } from "react";
 import "./searchHome.css";
 import { useNavigate, Link } from "react-router-dom";
 import Card from "./card";
 import Popup from "./popup";
+import ClipLoader from "react-spinners/ClipLoader";
+const override: CSSProperties = {
+  display: "block",
+  margin: "auto",
 
-const SearchHome = ({currentPages}) => {
+  
+  // borderColor: "red",
+};
+const SearchHome = ({currentPages,setAddProperty,addProperties,setEditPost}) => {
   const [ppd_id, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
   const [imageOverlay, setImageOverlay] = useState(false);
@@ -14,14 +21,17 @@ const SearchHome = ({currentPages}) => {
 
   const [currentPage, setCurrentPage] = useState(0);
   const [pageSize] = useState(5);
-
+  const [userPost,setUserPost] = useState(false);
+  const [isLoader,setIsLoader] = useState(false);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     homeHandling(0, pageSize, 0,ppd_id); //10,20,1
-  }, [ppd_id]);
+  }, [ppd_id,userPost]);
 
   const homeHandling = (start, end, increase, ppd_id) => {
+    setIsLoader(true);
+    if(!userPost){
     fetch(`/getId?limit=${pageSize}&ppd_id=${ppd_id}&start=${start}&end=${end}`, {
       headers: {
         "Content-Type": "application/json",
@@ -31,6 +41,7 @@ const SearchHome = ({currentPages}) => {
       .then((res) => res.json())
       .then((data) => {
         console.log("data",data.user)
+        setIsLoader(false);
         setPosts(data.user);
         setCurrentPage(currentPage + increase);
         // debugger
@@ -39,6 +50,25 @@ const SearchHome = ({currentPages}) => {
         console.log("catch", err);
       })
       .finally();
+    }
+    else{
+
+      fetch(`/myPosts/${localStorage.getItem("userId")}`,{
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: localStorage.getItem("token"),
+            },
+      }).then(res=>res.json()).then((data)=>{
+        if(data.error){
+          setIsLoader(false);
+        //  alert(data.error);
+         setPosts([]);
+         return;
+        }
+        setPosts(data);
+          console.log(data);
+      }).catch(err=>{console.log(err.message)})
+    }
   };
 
   const paginationHandle = () => {
@@ -129,6 +159,11 @@ const SearchHome = ({currentPages}) => {
 
 
 // }
+const propertiesHandling=(e)=>{
+// e.preventDefault();
+setUserPost(!userPost)
+// window.location.reload(false);
+}
   return (
     <div>
      <div className="main_sub_header">
@@ -155,16 +190,20 @@ const SearchHome = ({currentPages}) => {
           <option onClick={(e)=>{filterByLand(e)}} className="filter_options">Filter by Land</option>
         </select>
       </div> */}
-       
-            <Link className="app-property app-property-button" to={"/basicInfo"}>
+      <div className="buttons_searchHome">
+
+            <button className="user_post" onClick={(e)=>{propertiesHandling(e)}}>{!userPost?"My Properties": "All Properties"}</button>
+            <Link className="app-property app-property-button"  to={"/basicInfo"}>
               Add Property
             </Link>
+      </div>
      
         </div>
         <div className="main_content">
           <table>
             <thead>
               <tr>
+                {userPost && <th>SELECT</th>}
                 <th>PPD ID</th>
                 <th>IMAGE</th>
                 <th>PROPERTY</th>
@@ -174,11 +213,24 @@ const SearchHome = ({currentPages}) => {
                 <th>STATUS</th>
                 <th>DAYS LEFT</th>
                 <th>ACTION</th>
-                {/* <th>OTHERS</th> */}
+                {userPost && <th>OPERATION</th>}
+                
               </tr>
             </thead>
             <tbody>
-              {posts?.map((ele, i) => {
+              {isLoader?(
+                <tr>
+                  <td colSpan={100} style={{backgroundColor:"rgb(209,209,209)"}}>
+                  <ClipLoader 
+                color="#36d7b7"
+                size={100}
+                speedMultiplier={1}
+                cssOverride={override}
+              />
+                  </td>
+                </tr>
+               ):((posts.length==0) ?(<tr><td colSpan={11}><h3>no posts</h3></td></tr>): 
+              (posts?.map((ele, i)=>{
                 return (
                   <Card
                     ele={ele}
@@ -187,14 +239,19 @@ const SearchHome = ({currentPages}) => {
                     setImageOverlay={setImageOverlay}
                     setPopup={setPopup}
                     setImageUrl={setImageUrl}
+                    userPost={userPost}
+                    setUserPost={setUserPost}
+                    setAddProperty={setAddProperty} 
+                    addProperties ={addProperties}
+                    setEditPost={setEditPost}
                   />
                 );
-              })}
+              })))}
             </tbody>
           </table>
-          {paginationHandle()}
           <Popup popup={popup} setPopup={setPopup} imageUrl={imageUrl} />
         </div>    
+          {paginationHandle()}
     </div>
   );
 };

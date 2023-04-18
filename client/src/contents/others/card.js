@@ -1,12 +1,15 @@
 import {useState} from "react";
 import "./card.css";
-const Card =({ele,i,imageOverlay,setImageOverlay,popup,setPopup,setImageUrl})=>{
-    const [toggle,setToggle] = useState("unsold")
+import { useNavigate } from "react-router-dom";
+const Card =({ele,i,imageOverlay,setImageOverlay,popup,setPopup,setImageUrl,userPost,setUserPost,setAddProperty,addProperties,setEditPost})=>{
+    const [toggle,setToggle] = useState(ele.status)
     const [otherDetails,setOtherDetails] = useState(false)
     const [basic,setBasic] = useState(true)
     const [property,setProperty] = useState(false)
     const [general,setGeneral] = useState(false)
     const [location,setLocation] = useState(false)
+    const [myPostEdit,setMyPostEdit] = useState(false)
+    const navigate = useNavigate();
   
 const funcHandle=()=>{
     setImageUrl(ele.photo)
@@ -40,10 +43,51 @@ const locationInfoHandling=(e)=>{
     setGeneral(false);
     setLocation(true)
 }
- 
+const soldStatusHandling=(e)=>{
+e.preventDefault();
+
+if(toggle == "unsold" && userPost){
+fetch("/propertySold",{
+    method:"post",
+    headers:{
+        "content-type":"application/json",
+        "Authorization": localStorage.getItem("token")
+    },
+    body: JSON.stringify({userId:localStorage.getItem("userId"),status:"sold",ppd_id:ele.ppd_id})
+}).then(res=>res.json()).then((data)=>{
+    console.log(data);
+    alert('sold successfully');
+    setUserPost(!userPost);
+    setToggle("sold");
+}).catch(err=>{console.log(err)})
+
+}
+}
+const postDeleteHandling =()=>{
+    fetch(`/deleteMyPost/${ele._id}`,{
+        method:"delete",
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":localStorage.getItem("token"),               
+        },
+    }).then(res=>res.json()).then((data)=>{
+        console.log(data);
+        alert(data.message);
+        setMyPostEdit(!myPostEdit)
+        setUserPost(!userPost);
+    }).catch(err=>{console.log(err)})
+}
+ const editHandling =(e)=>{
+    e.preventDefault();
+    setEditPost(true);
+    // console.log(addProperties)
+    setAddProperty(ele)
+    navigate("/basicInfo")
+ }
     return(   
         <>
   <tr key={i}>
+    {userPost && <td><input type="checkbox" onClick={()=>{setMyPostEdit(!myPostEdit)}}/></td>}
     <td>{ele.ppd_id}</td>
     <td><button className="image_content" onClick={()=>{funcHandle()}}><img src={ele.photo} alt="image" style={{"width":"50px"}}></img></button></td>
     
@@ -51,9 +95,10 @@ const locationInfoHandling=(e)=>{
     <td>{ele.contact}</td>
     <td>{ele.area}</td>
     <td>views</td>
-    <td><button key={i} onClick={()=>{setToggle("sold")}}>{toggle}</button></td>
+    <td>{userPost?<button key={i} onClick={(e)=>{if(ele.status=="unsold"){soldStatusHandling(e)}}}>{ele.status}</button>:<p>{ele.status}</p>}</td>
     <td>23</td>
     <td><i onClick={()=>{setOtherDetails(!otherDetails)}} class="fa-solid fa-eye"></i></td>
+  {userPost && (!myPostEdit ? <td><button onClick={(e)=>{editHandling(e)}}>Edit</button></td>:<td><button onClick={(e)=>{postDeleteHandling(e)}}>Delete</button></td>)}
   </tr>   
   {otherDetails?
   <tr>

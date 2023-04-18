@@ -9,6 +9,7 @@ import SearchMain from '../others/searchMain';
 import { useNavigate } from 'react-router-dom';
 import BasicInfo from '../screens/basic-info';
 import { useState } from "react";
+import Card from '../others/card';
 const Router =()=>{
 
     const navigate = useNavigate();
@@ -22,19 +23,21 @@ const Router =()=>{
     
     },[])
         const [addProperties, setAddProperty] = useState({});
+        const [editPost,setEditPost] = useState(false)
         const [url,setUrl] = useState("");
         useEffect(()=>{
           setAddProperty({...addProperties,"photo":url})
         },[url])
 
       const dataHandling=()=>{
+        if(!editPost){
       fetch("/createPost",{
         method:"post",
         headers:{
           "Content-Type" : "application/json",
           "Authorization": localStorage.getItem("token")                
         },
-        body:JSON.stringify(addProperties)
+        body:JSON.stringify({...addProperties,status:"unsold",userId:localStorage.getItem("userId")})
       }).then(res=>res.json()).then((data)=>{
             console.log("data in final .then",data)
             if(data.error){
@@ -48,6 +51,28 @@ const Router =()=>{
           })
 
       }
+      else{
+        fetch("/updatePost",{
+          method:"put",
+          headers:{
+            "Content-Type" : "application/json",
+            "Authorization": localStorage.getItem("token")                
+          },
+          body:JSON.stringify({...addProperties,userId:localStorage.getItem("userId")})
+        }).then(res=>res.json()).then((data)=>{
+              console.log("data in final .then",data)
+              if(data.error){
+                return alert(data.error)
+              }
+              alert('successfully updated')
+              setAddProperty({});
+              setEditPost(false);
+              navigates("/getId")
+            }).catch((err)=>{
+              console.log(err)
+            })
+      }
+    }
 
     return(
       <>
@@ -61,8 +86,8 @@ const Router =()=>{
             <Route path='/generalInfo' element={<GeneralInfo addProperties={addProperties} setAddProperty={setAddProperty} setUrl={setUrl} />}/>
             <Route path='/propertyDetails' element={<PropertyDetails addProperties={addProperties} setAddProperty={setAddProperty}/>}/>
             <Route path='/locationInfo' element={<LocationInfo addProperties={addProperties} setAddProperty={setAddProperty}  dataHandling={dataHandling}/>}/>
-            <Route path='/getId' element={<SearchMain/>}/>
-        
+            <Route path='/getId' element={<SearchMain setAddProperty={setAddProperty} addProperties ={addProperties} setEditPost={setEditPost}/>}/>        
+            {/* <Route path='/card' element={<Card setAddProperty={setAddProperty} addProperties ={addProperties}/>} />         */}
             </Routes>
            
       </>
