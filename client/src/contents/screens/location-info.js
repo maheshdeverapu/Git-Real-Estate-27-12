@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import SideNav from "../others/sideNav";
 import MainHeader from "../others/mainHeader";
@@ -6,12 +6,9 @@ import "./location-info.css";
 const LocationInfo = ({
   setAddProperty,
   addProperties,
-  setFinaldatas,
   dataHandling,
-  finalHandling,
 }) => {
   const [pageLocationVal, setPageLocationVal] = useState(false);
-  const navigate = useNavigate();
   const {
     email,
     city,
@@ -35,7 +32,7 @@ const LocationInfo = ({
         !addProperties.latitude ||
         !addProperties.longitude)
     ) {
-       return setPageLocationVal(true);
+      return setPageLocationVal(true);
     }
     dataHandling();
   };
@@ -66,7 +63,6 @@ const LocationInfo = ({
         ) : (
           ""
         )}
-
         <form className="form">
           <div className="column_main">
             <div className="column_one">
@@ -138,11 +134,6 @@ const LocationInfo = ({
                     });
                   }}
                 ></input>
-                {/* <select className="column_one_child" id="pincode" name="pincode" onChange={(e)=>{setAddProperty({...addProperties,pincode:e.target.value})}}>
-                        <option>select</option> 
-                        <option value="Owner">Owner</option>
-                        <option value="Dealer">Dealer</option>
-                    </select> */}
               </div>
             </div>
             <div className="column_two">
@@ -160,11 +151,6 @@ const LocationInfo = ({
                     });
                   }}
                 ></input>
-                {/* <select className="column_two_child" id="address" name="address" onChange={(e)=>{setAddProperty({...addProperties,address:e.target.value})}}>
-                        <option>select</option> 
-                        <option value="Owner">Owner</option>
-                        <option value="Dealer">Dealer</option>
-                    </select> */}
               </div>
               <div>
                 <label htmlFor="landmark">Landmark</label>
@@ -180,11 +166,6 @@ const LocationInfo = ({
                     });
                   }}
                 ></input>
-                {/* <select className="column_two_child" id="landmark" name="landmark" onChange={(e)=>{setAddProperty({...addProperties,landmark:e.target.value})}}>
-                        <option>select</option> 
-                        <option value="Owner">Owner</option>
-                        <option value="Dealer">Dealer</option>
-                    </select> */}
               </div>
               <div>
                 <label htmlFor="latitude">Latitude</label>

@@ -11,8 +11,6 @@
     flex-direction: row;
     column-gap: 20px;
     color: gray;
-    
-
 }
 .side_nav_content >div > h3{
     font-weight: lighter;

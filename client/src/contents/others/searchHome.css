@@ -7,11 +7,9 @@
     height: 10vh;
     align-items: center !important;
 }
-
 .main_content{
     width: 100%;
     min-height: 71vh !important;
-    /* height: 70vh; */
 }
 #filtering{
     width: 250px;
@@ -22,18 +20,6 @@
     padding: 10px;
     border: 1px solid gray;
 }
-/* #filtering *{
-    height: 30px;
-    width: 400px;
-} */
-/* select option{
-    height: 30px;
-    width: 400px;
-} */
-/* #filtering .filter_options{
-    height: 30px;
-    width: 400px;
-} */
 table{
     width: 1400px;
     height: 10v/h !important;
@@ -42,9 +28,6 @@ table{
     margin: auto;
     
 }
-/* tbody>tr{
-
-} */
 tr,th,td{
     height: 80px;
 }
@@ -53,10 +36,8 @@ td{
     padding: 10px 0px;
     max-height: 80px;
 }
-
 tr{
     background-color: rgb(255, 255, 255);
-    
 }
 tr,th:first-child,td:first-child{
     border-top-left-radius: 20px;
@@ -79,19 +60,6 @@ tr,th:last-child,td:last-child{
     color: rgb(255, 255, 255);
     margin-right: 40px;
 }
-/* .user_post{
-    text-decoration: none;
-    font-size: x-large;
-    box-shadow: 10px 10px 10px gray;
-    width: 200px;
-    padding:20px;
-    margin-right: 40px;
-    border-radius: 35px;
-    background-color: rgb(135,206,235);
-    border: 0px;
-    text-align: center;
-    color: rgb(255, 255, 255);
-} */
 .app-property:hover,.user_post:hover{
     box-shadow: 10px 10px 10px gray;
     width: 200px;
@@ -103,13 +71,7 @@ tr,th:last-child,td:last-child{
     width: 200px;
     padding:25px 20px;
     background-color: rgb(135,206,235);
-    color: rgb(255, 255, 255);
-    
-}
-.buttons_searchHome{
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* gap: 60px; */
+    color: rgb(255, 255, 255);   
 }
 .search{
     width: 350px;
@@ -118,10 +80,8 @@ tr,th:last-child,td:last-child{
     border-radius: 20px;
     padding-left: 30px;
 }
-
 .search_fol{
-    position:relative;
-    
+    position:relative;  
 }
 .mag_glass{
     position: absolute;
@@ -136,14 +96,12 @@ tr,th:last-child,td:last-child{
     margin: 10px 0;
 }
 .pagination_next,.pagination_prev{
-    /* margin: 0 0 30px 0px; */
     padding: 0px 30px;
     border-radius: 30px;
     background-color: skyblue;
     border: 0px;
     box-shadow: 1px 1px 15px gray;
-    color: white;
-    
+    color: white;   
 }
 .pagination_next:hover,.pagination_prev:hover{
     background-color: rgb(129, 194, 220);

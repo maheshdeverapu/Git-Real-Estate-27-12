@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom/dist";
-
 import SideNav from "../others/sideNav";
 import MainHeader from "../others/mainHeader";
 import { useNavigate } from "react-router-dom/dist";
@@ -16,10 +15,8 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
     setPageBasicInfoVal(true);
     if(!addProperties.property || !addProperties.negotable || !addProperties.price || !addProperties.ownership || !addProperties.propertyAge || !addProperties.propertyApproved || !addProperties.propertyDescription || !addProperties.bankLoan){
       return setPageBasicInfoVal(true);
-      // return alert('please fill all details') 
     }
-    setusenavigate(true);
-    
+    setusenavigate(true); 
   }
   useEffect(()=>{
     if(usenavigate){
@@ -60,8 +57,7 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                     setAddProperty({
                       ...addProperties,
                       property: e.target.value,
-                    });
-                   
+                    });                  
                   }}
                 >
                   <option>select</option>
@@ -123,7 +119,6 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                 </select>
               </div>
             </div>
-
             <div className="column_two">
               <div>
                 <label htmlFor="property-age">Property-Age</label>
@@ -163,7 +158,6 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
                   <option value="NO">NO</option>
                 </select>
               </div>
-
               <div>
                 <label htmlFor="property-description">
                   Property Description
@@ -203,14 +197,9 @@ const BasicInfo = ({ setAddProperty, addProperties }) => {
               </div>
             </div>
           </div>
-          <div className="buttons">
-        
-            <Link className="cancel" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} to={"/getId"}>cancel</Link>
-          
-        
-            <button className="save_continue" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} onClick={(e)=>{handle(e)}}>Save & Continue</button>
-            {/* <Link className="save_continue" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} to={"/propertyDetails"}>Save & Continue</Link> */}
-          
+          <div className="buttons">       
+            <Link className="cancel" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} to={"/getId"}>cancel</Link>        
+            <button className="save_continue" style={{"textDecoration":"none","color":"white","fontSize":"20px"}} onClick={(e)=>{handle(e)}}>Save & Continue</button>         
           </div>
         </form>
       </div>

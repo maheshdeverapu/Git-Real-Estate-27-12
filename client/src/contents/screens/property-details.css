@@ -1,7 +1,6 @@
 .sub_header{
     display: flex;
     height: 60px;
-
     flex-direction: row;
     justify-content: space-between;
     margin: 40px 150px;
@@ -18,10 +17,7 @@
     padding: 10px 15px;
     background-color: rgb(225,249,244);
     border-radius: 25px;
-
 }
-
-
 .property_details{
     background-color: skyblue;
     color: white;

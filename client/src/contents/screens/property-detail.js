@@ -6,24 +6,23 @@ import MainHeader from "../others/mainHeader";
 import "./property-details.css";
 
 const PropertyDetails = ({ setAddProperty, addProperties }) => {
-  const [pageAddPropertyVal,setPageAddPropertyVal] = useState(false);
-  const [usenavigateTwo,setusenavigateTwo] = useState(false);
+  const [pageAddPropertyVal, setPageAddPropertyVal] = useState(false);
+  const [usenavigateTwo, setusenavigateTwo] = useState(false);
   const navigate = useNavigate();
-  const {length,breath,area,areaUnit,noOfBhk,noOfFloor,attached,westernToilet,furnished,carParking,lift,electricity,facing} = addProperties;
-  const propertyPageHandle=(e)=>{
+  const { length, breath, area, areaUnit, noOfBhk, noOfFloor, attached, westernToilet, furnished, carParking, lift, electricity, facing } = addProperties;
+  const propertyPageHandle = (e) => {
     e.preventDefault();
     setPageAddPropertyVal(false);
-    if(!addProperties.length || !addProperties.breath || !addProperties.area || !addProperties.areaUnit || !addProperties.noOfBhk || !addProperties.noOfFloor || !addProperties.attached || !addProperties.westernToilet || !addProperties.furnished || !addProperties.carParking || !addProperties.lift || !addProperties.electricity || !addProperties.facing){
+    if (!addProperties.length || !addProperties.breath || !addProperties.area || !addProperties.areaUnit || !addProperties.noOfBhk || !addProperties.noOfFloor || !addProperties.attached || !addProperties.westernToilet || !addProperties.furnished || !addProperties.carParking || !addProperties.lift || !addProperties.electricity || !addProperties.facing) {
       return setPageAddPropertyVal(true);
     }
     setusenavigateTwo(true);
-    // navigate("/generalInfo");
   }
-  useEffect(()=>{
-    if(usenavigateTwo){
+  useEffect(() => {
+    if (usenavigateTwo) {
       navigate("/generalInfo");
     }
-  },[usenavigateTwo])
+  }, [usenavigateTwo])
   return (
     <div className="home">
       <SideNav />
@@ -44,7 +43,7 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
             <span>4</span>Location Info
           </h3>
         </div>
-        {pageAddPropertyVal?<p className="emptyAlert">Please enter all fields</p>:""}
+        {pageAddPropertyVal ? <p className="emptyAlert">Please enter all fields</p> : ""}
         <form className="form">
           <div className="column_main">
             <div className="column_one">
@@ -285,40 +284,26 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
             </div>
           </div>
           <div className="buttons">
-        
-              <Link className="cancel"
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                  fontSize: "20px",
-                }}
-                to={"/basicInfo"}
-              >
-                Basic Info
-              </Link>
-     
-   
-              {/* <Link className="save_continue"
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                  fontSize: "20px",
-                }}
-                to={"/generalInfo"}
-              >
-                Save & Continue
-              </Link> */}
-              <button className="save_continue"
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                  fontSize: "20px",
-                }}
-                onClick={(e)=>{propertyPageHandle(e)}}
-              >
-                Save & Continue
-              </button>
-       
+            <Link className="cancel"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                fontSize: "20px",
+              }}
+              to={"/basicInfo"}
+            >
+              Basic Info
+            </Link>
+            <button className="save_continue"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                fontSize: "20px",
+              }}
+              onClick={(e) => { propertyPageHandle(e) }}
+            >
+              Save & Continue
+            </button>
           </div>
         </form>
       </div>
