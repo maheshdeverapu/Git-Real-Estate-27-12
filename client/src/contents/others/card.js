@@ -83,21 +83,21 @@ const Card = ({ ele, i, setPopup, setImageUrl, userPost, setUserPost, setAddProp
     return (
         <>
             <tr key={i}>
-                {userPost && <td><input type="checkbox" onClick={() => { setMyPostEdit(!myPostEdit) }} /></td>}
+                {userPost && <td><input style={{height:"3vh"}} type="checkbox" id="my_checkbox" onClick={() => { setMyPostEdit(!myPostEdit) }} /></td>}
                 <td>{ele.ppd_id}</td>
                 <td><button className="image_content" onClick={() => { funcHandle() }}><img src={ele.photo} alt="image" style={{ "width": "50px" }}></img></button></td>
                 <td>{ele.property}</td>
                 <td>{ele.contact}</td>
                 <td>{ele.area}</td>
                 <td>views</td>
-                <td>{userPost ? <button key={i} onClick={(e) => { if (ele.status == "unsold") { soldStatusHandling(e) } }}>{ele.status}</button> : <p>{ele.status}</p>}</td>
+                <td>{userPost ? <button className="unsold_status" key={i} onClick={(e) => { if (ele.status == "unsold") { soldStatusHandling(e) } }}>{ele.status}</button> : <p>{ele.status}</p>}</td>
                 <td>23</td>
                 <td><i onClick={() => { setOtherDetails(!otherDetails) }} class="fa-solid fa-eye"></i></td>
-                {userPost && (!myPostEdit ? <td><button onClick={(e) => { editHandling(e) }}>Edit</button></td> : <td><button onClick={(e) => { postDeleteHandling(e) }}>Delete</button></td>)}
+                {userPost && (!myPostEdit ? <td><button className="edit_post" onClick={(e) => { editHandling(e) }}>Edit</button></td> : <td><button className="delete_button"  onClick={(e) => { postDeleteHandling(e) }}>Delete</button></td>)}
             </tr>
             {otherDetails ?
                 <tr>
-                    <td colspan={7} className="full_property_data">
+                    <td colspan={100} className="full_property_data">
                         <div className="inner_content" >
                             <div className="side_nav_inner">
                                 <button onClick={(e) => { basicInfoHandling(e) }}><i class="fa-solid fa-user"></i>Basic Information</button>
@@ -105,7 +105,7 @@ const Card = ({ ele, i, setPopup, setImageUrl, userPost, setUserPost, setAddProp
                                 <button onClick={(e) => { generalInfoHandling(e) }}><i class="fa-solid fa-lightbulb"></i>General Information</button>
                                 <button onClick={(e) => { locationInfoHandling(e) }}><i class="fa-solid fa-location-dot"></i>Location Information</button>
                             </div>
-                            <div>
+                            <div className="all_info">
                                 {basic ?
                                     <div className="additional_info">
                                         <h3>Basic Information</h3>

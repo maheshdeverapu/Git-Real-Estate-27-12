@@ -1,7 +1,7 @@
 import "./mainHeader.css";
 import React from "react";
 import { useState} from "react";
-import "./searchMain.css";
+import "./homeScreen.css";
 import { useNavigate} from "react-router-dom";
 
 const MainHeader = () => {

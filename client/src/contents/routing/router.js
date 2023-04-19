@@ -5,7 +5,7 @@ import GeneralInfo from '../screens/general-info';
 import PropertyDetails from '../screens/property-detail';
 import LocationInfo from '../screens/location-info';
 import { useEffect } from "react";
-import SearchMain from '../others/searchMain';
+import SearchMain from '../others/homeScreen';
 import { useNavigate } from 'react-router-dom';
 import BasicInfo from '../screens/basic-info';
 import { useState } from "react";

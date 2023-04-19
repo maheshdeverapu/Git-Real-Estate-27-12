@@ -1,18 +1,22 @@
+
 .sub_header{
     display: flex;
-    height: 60px;
+    min-height: 7vh;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin: 50px 150px;
+    margin: 5vh 15vh;
     background-color: rgb(255, 255, 255);
     align-items: center;
-    border-radius: 30px;
-    padding: 0px 80px;
+    border-radius: 3vh;
+    padding: 0 8vh;
     color: rgb(180, 180, 180);
+    row-gap: 2vh;
+    overflow: hidden;
 }
 .addNewProperty{
     color: gray;
-    padding-left: 40px;
+    margin-left: 4vh;
 }
 .sub_header> h3 > span{
     padding: 10px 15px;
@@ -32,14 +36,16 @@ background-color: white !important;
 }
 .emptyAlert{
     position: fixed;
-    color:red;
-    right: 500px;
-    top:150px !important;
+    color:red;  
+    text-align: center;
+    right: 10vh;
+    /* right: 500px; */
+    top:13vh !important;
      margin: 0px;
-     font-size: 20px;
+     font-size: 2vh;
     }
 .form{
-    margin: 0px 150px;
+    margin: 0px 15vh;
     padding: 40px;
     border-radius: 30px;
     background-color: rgb(255, 255, 255);
@@ -49,30 +55,32 @@ background-color: white !important;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 20px; 
+    padding: 0 2vh; 
 }
 .column_one,.column_two{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 2vh;
+    width: 45%;
+    /* box-sizing: border-box; */
 }
 .column_one>div,.column_two>div{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1vh;
 }
 .buttons{
     display: flex;
     flex-direction: row;
     justify-content:center;
-    gap: 30px;
+    gap: 3vh;
 }
 .cancel,.save_continue{
     background-color: skyblue;
-    width: 250px;
-    padding: 15px;
-    margin-top: 50px;
-    border-radius: 25px;
+    max-width: 100%;
+    padding: 1.5vh;
+    /* margin-top: 5vh; */
+    border-radius: 2.5vh;
     border: 0px;
     text-align: center;
     box-shadow: 10px 10px 15px gray;
@@ -92,11 +100,42 @@ background-color: white !important;
 .save_continue:active{
     background-color: rgb(76,87,182);
 }
-.column_one_child{
-    width: 500px;
+.column_one_child,.column_two_child{
+    width: 100%;
     height: 50px;
     border: 1px solid gray;
     border-radius: 5px;
 }
 
+@media screen and (max-width: 900px) {
+    .sub_header{
+        margin: 5vh;
+    }
+    .column_main{
+        flex-direction: column;
+        width: 100%;
+        row-gap: 2vh;
+        box-sizing: border-box;
+    }
+    .column_one,.column_two{
+        width: 100%;
+        
 
+    }
+    .buttons{
+        flex-direction: column;
+        width: 100%;
+    }
+    .cancel,.save_continue{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .form{
+        margin: 0px 5vh;
+        max-width: 100%;
+        margin: 2vh 0;
+    }
+}
+@media screen and (max-width: 1450) {
+
+}

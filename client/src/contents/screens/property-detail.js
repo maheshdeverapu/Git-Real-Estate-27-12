@@ -151,10 +151,12 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   <option value="3">3</option>
                 </select>
               </div>
+                </div>
+                <div className="column_two">
               <div>
                 <label htmlFor="attached">Attached</label>
                 <select
-                  className="column_one_child"
+                  className="column_two_child"
                   id="attached"
                   name="attached"
                   value={attached}
@@ -170,8 +172,6 @@ const PropertyDetails = ({ setAddProperty, addProperties }) => {
                   <option value="no">NO</option>
                 </select>
               </div>
-            </div>
-            <div className="column_two">
               <div>
                 <label htmlFor="wester-toilet">Wester Toilet</label>
                 <select

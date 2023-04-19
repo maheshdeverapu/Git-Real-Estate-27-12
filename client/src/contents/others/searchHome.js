@@ -10,7 +10,7 @@ const override: CSSProperties = {
   margin: "auto",
 };
 
-const SearchHome = ({ currentPages, setAddProperty, addProperties, setEditPost }) => {
+const SearchHome = ({ setAddProperty, addProperties, setEditPost }) => {
   const [ppd_id, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
   const [imageOverlay, setImageOverlay] = useState(false);

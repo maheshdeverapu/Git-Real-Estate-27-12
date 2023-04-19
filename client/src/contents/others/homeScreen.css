@@ -1,3 +1,7 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 .home{
     display: flex;
     flex-direction: row;
@@ -9,5 +13,12 @@
     background-color: rgb(209, 209, 209);
     width: 100%;
     min-height: 300px;
+}
+@media screen and (max-width: 900px) {
+   .home{
+    flex-direction: column;
+    max-width: 100%;
+   }
+
 }
 

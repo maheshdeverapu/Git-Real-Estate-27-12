@@ -8,13 +8,17 @@
     background-color: rgb(225,249,244);
     padding: 20px;
     color: rgb(162, 162, 162);
-    min-height: 550px;
+    min-height: 40vh;
 
 }
 .inner_content{
     display: flex;
     flex-direction: row;
-    gap: 350px;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    min-height: 40vh;
+    /* gap: 350px; */
 }
 .side_nav_inner>button{
     border: 0px;
@@ -27,9 +31,87 @@
     color: rgb(162, 162, 162);
 }
 .full_property_data{
-    background-color: aliceblue;
+    background-color: rgb(209, 209, 209);
     border-radius: 0 !important;
 }
 .additional_info{
-    text-align: left;
+    text-align: center;
 }
+.all_info{
+    background-color: white;
+    padding: 5vh;
+    min-width: 50vh;
+    /* min-height: 30vh; */
+   
+    
+
+}
+
+input[type="checkbox"] {
+    /* hide the default checkbox */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* create a custom checkbox using a pseudo element */
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  input[type="checkbox"]:checked::before {
+    /* change the appearance of the custom checkbox when checked */
+    content: '\2713';
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #007bff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+  }
+  .edit_post{
+    padding: 1vh;
+    background-color: rgb(61, 198, 61);
+    color: rgb(88, 88, 88);
+    border: 0;
+  }
+  .edit_post:hover{
+    background-color: rgb(51, 161, 51);
+    color: white;
+    box-shadow: 1px 1px 10px gray;
+    padding: 1.5vh;
+  }
+  .edit_post:active{
+    background-color: rgb(51, 161, 51);
+    color: gray;
+  }
+  .delete_button{
+    padding: 1vh;
+    background-color: rgb(235, 43, 43);
+    color: rgb(88, 88, 88);
+    border: 0;
+  }
+  .delete_button:hover{
+    background-color: rgb(193, 43, 43);
+    color: white;
+    box-shadow: 1px 1px 10px gray;
+    padding: 1.5vh;
+  }
+  .delete_button:active{
+    background-color: rgb(157, 46, 46);
+    color: gray;
+  }
+  .unsold_status{
+    padding: 1vh;
+   
+  }
+ 

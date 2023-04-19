@@ -1,10 +1,15 @@
 .side_nav{
-    width: 20%;
-    min-height: 100vh;
-    background-color: rgb(225,249,244) !important;
+    max-width: 20%;
+    min-height: 10vh;
+    background-color: rgb(225,249,244);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.side_nav_content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
 }
 .side_nav_content >div{
     display: flex;
@@ -14,6 +19,7 @@
 }
 .side_nav_content >div > h3{
     font-weight: lighter;
+    
 }
 .side_nav_content >div:hover{
     color: black;
@@ -24,6 +30,41 @@
     border-radius: 50px;
     margin: 30px;
     
+}
+
+@media screen and (max-width: 900px) {
+    .side_nav{
+        flex-direction: row;
+        max-width: 100%;
+        min-height: 5vh;
+        align-items:center;
+        background-color: rgb(225,249,244) !important;
+        
+       
+    }
+    .side_nav_content >div{
+        display: flex;
+        flex-direction: row;
+        column-gap: 20px;
+        color: gray;
+        margin-left: 3vh;
+        
+    }
+    .side_nav_content >div:nth-child(n+4) {
+        display: none; /* Hide items 3 and above */
+      }
+   .side_nav_content{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    overflow-x: hidden;
+    row-gap: 2vh;
+    column-gap: 2vh;
+    
+   }
+   .home_logo{
+    max-width: 5%;
+   }
 }
 
 

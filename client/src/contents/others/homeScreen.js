@@ -1,10 +1,10 @@
 import React from "react";
-import "./searchMain.css";
+import "./homeScreen.css";
 import SearchHome from "./searchHome";
 import SideNav from "./sideNav";
 import MainHeader from "./mainHeader";
 
-const SearchMain = ({setAddProperty,addProperties,setEditPost}) => {
+const HomeScreen = ({setAddProperty,addProperties,setEditPost}) => {
 
   return (
     <div className="home">
@@ -19,4 +19,4 @@ const SearchMain = ({setAddProperty,addProperties,setEditPost}) => {
   );
 };
 
-export default SearchMain;
+export default HomeScreen;
